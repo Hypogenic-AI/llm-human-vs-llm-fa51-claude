@@ -1,0 +1,23 @@
+idea:
+  title: Do LLMs behave differently when the prompter is human vs another LLM?
+  domain: nlp
+  hypothesis: 'Large language models may exhibit different behaviors depending on
+    whether the prompt is written in a human style or in a style characteristic of
+    another LLM, even when the content is controlled. This research will test whether
+    LLMs respond differently to prompts that are recognizably human versus recognizably
+    LLM-generated.
+
+    '
+  background:
+    description: It seems clear that LLMs can recognize when a text is from a human
+      or an LLM. We could make a reasonable assumption that they "expect" prompts
+      to come from humans, have human style. What happens if the prompt, controlled
+      for content, reads very LLM? Might they behave differently?
+  metadata:
+    source: IdeaHub
+    source_url: https://hypogenic.ai/ideahub/idea/dyWMLVUlyLEPhuzpQ2Ob
+    idea_id: do_llms_behave_differently_whe_20260210_183149_fbac3d69
+    created_at: '2026-02-10T18:31:49.556027'
+    status: submitted
+    github_repo_name: llm-human-vs-llm-fa51-claude
+    github_repo_url: https://github.com/Hypogenic-AI/llm-human-vs-llm-fa51-claude
