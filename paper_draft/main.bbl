@@ -1,0 +1,119 @@
+\begin{thebibliography}{16}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Chan et~al.(2023)Chan, Chen, Su, Yu, Xue, Zhang, Fu, and
+  Liu]{chan2023chateval}
+Chi-Min Chan, Weize Chen, Yusheng Su, Jianxuan Yu, Wei Xue, Shanghang Zhang,
+  Jie Fu, and Zhiyuan Liu.
+\newblock Chateval: Towards better {LLM}-based evaluators through multi-agent
+  debate.
+\newblock \emph{arXiv preprint arXiv:2308.07201}, 2023.
+
+\bibitem[Cohen(1988)]{cohen1988statistical}
+Jacob Cohen.
+\newblock \emph{Statistical Power Analysis for the Behavioral Sciences}.
+\newblock Routledge, 2nd edition, 1988.
+
+\bibitem[Du et~al.(2023)Du, Li, Torralba, Tenenbaum, and
+  Mordatch]{du2023debate}
+Yilun Du, Shuang Li, Antonio Torralba, Joshua~B Tenenbaum, and Igor Mordatch.
+\newblock Improving factuality and reasoning in language models through
+  multiagent debate.
+\newblock \emph{arXiv preprint arXiv:2305.14325}, 2023.
+
+\bibitem[Joshi et~al.(2017)Joshi, Choi, Weld, and
+  Zettlemoyer]{joshi2017triviaqa}
+Mandar Joshi, Eunsol Choi, Daniel~S Weld, and Luke Zettlemoyer.
+\newblock Triviaqa: A large scale distantly supervised challenge dataset for
+  reading comprehension.
+\newblock \emph{arXiv preprint arXiv:1705.03551}, 2017.
+
+\bibitem[Kervadec et~al.(2023)Kervadec, Franzon, and
+  Baroni]{kervadec2023unnatural}
+Corentin Kervadec, Francesca Franzon, and Marco Baroni.
+\newblock Unnatural language processing: Bridging the gap between synthetic and
+  natural language data.
+\newblock \emph{arXiv preprint arXiv:2310.15829}, 2023.
+
+\bibitem[Mitchell et~al.(2023)Mitchell, Lee, Khazatsky, Manning, and
+  Finn]{mitchell2023detectgpt}
+Eric Mitchell, Yoonho Lee, Alexander Khazatsky, Christopher~D Manning, and
+  Chelsea Finn.
+\newblock Detectgpt: Zero-shot machine-generated text detection using
+  probability curvature.
+\newblock \emph{arXiv preprint arXiv:2301.11305}, 2023.
+
+\bibitem[Perez et~al.(2023)Perez, Ringer, Luko{\v{s}}i{\=u}t{\.e}, Nguyen,
+  Chen, Heiner, Pettit, Olsson, Kundu, Kadavath, et~al.]{perez2022discovering}
+Ethan Perez, Sam Ringer, Kamil{\.e} Luko{\v{s}}i{\=u}t{\.e}, Karina Nguyen,
+  Edwin Chen, Scott Heiner, Craig Pettit, Catherine Olsson, Sandipan Kundu,
+  Saurav Kadavath, et~al.
+\newblock Discovering language model behaviors with model-written evaluations.
+\newblock In \emph{Findings of ACL}, 2023.
+
+\bibitem[Razavi et~al.(2025)Razavi, Vechtomova, and
+  Arabzadeh]{razavi2025benchmarking}
+Nazanin Razavi, Olga Vechtomova, and Negar Arabzadeh.
+\newblock Benchmarking prompt sensitivity in large language models.
+\newblock \emph{arXiv preprint arXiv:2502.06065}, 2025.
+
+\bibitem[Razavi et~al.(2024)]{razavi2024posix}
+Nazanin Razavi et~al.
+\newblock {POSIX}: A prompt sensitivity index for large language models.
+\newblock \emph{arXiv preprint arXiv:2410.02185}, 2024.
+
+\bibitem[Sadasivan et~al.(2023)Sadasivan, Kumar, Balasubramanian, Wang, and
+  Feizi]{sadasivan2023aigenerated}
+Vinu~Sankar Sadasivan, Aounon Kumar, Sriram Balasubramanian, Wenxiao Wang, and
+  Soheil Feizi.
+\newblock Can {AI}-generated text be reliably detected?
+\newblock \emph{arXiv preprint arXiv:2303.11156}, 2023.
+
+\bibitem[Sharma et~al.(2024)Sharma, Tong, Korbak, Duvenaud, Askell, Bowman,
+  Cheng, Bai, Perez, et~al.]{sharma2024sycophancy}
+Mrinank Sharma, Meg Tong, Tomasz Korbak, David Duvenaud, Amanda Askell,
+  Samuel~R Bowman, Newton Cheng, Yuntao Bai, Ethan Perez, et~al.
+\newblock Towards understanding sycophancy in language models.
+\newblock In \emph{Proceedings of the International Conference on Learning
+  Representations (ICLR)}, 2024.
+
+\bibitem[Suzgun et~al.(2023)Suzgun, Scales, Sch{\"a}rli, Gehrmann, Tay, Chung,
+  Chowdhery, Le, Chi, Zhou, and Wei]{suzgun2023bbh}
+Mirac Suzgun, Nathan Scales, Nathanael Sch{\"a}rli, Sebastian Gehrmann, Yi~Tay,
+  Hyung~Won Chung, Aakanksha Chowdhery, Quoc~V Le, Ed~H Chi, Denny Zhou, and
+  Jason Wei.
+\newblock Challenging {BIG}-bench tasks and whether chain-of-thought can solve
+  them.
+\newblock In \emph{Findings of ACL}, 2023.
+
+\bibitem[Turpin et~al.(2023)Turpin, Michael, Perez, and
+  Bowman]{turpin2023unfaithful}
+Miles Turpin, Julian Michael, Ethan Perez, and Samuel~R Bowman.
+\newblock Language models don't always say what they think: Unfaithful
+  explanations in chain-of-thought prompting.
+\newblock In \emph{Advances in Neural Information Processing Systems
+  (NeurIPS)}, 2023.
+
+\bibitem[Wei et~al.(2023)Wei, Sharma, Tong, et~al.]{wei2023sycophancy}
+Jerry Wei, Mrinank Sharma, Meg Tong, et~al.
+\newblock Simple synthetic data reduces sycophancy in large language models.
+\newblock \emph{arXiv preprint arXiv:2308.03958}, 2023.
+
+\bibitem[Yang et~al.(2024)Yang, Wang, Lu, Liu, Le, Zhou, and
+  Chen]{yang2024opro}
+Chengrun Yang, Xuezhi Wang, Yifeng Lu, Hanxiao Liu, Quoc~V Le, Denny Zhou, and
+  Xinyun Chen.
+\newblock Large language models as optimizers.
+\newblock \emph{arXiv preprint arXiv:2309.03409}, 2024.
+
+\bibitem[Zhou et~al.(2025)]{zhou2025pimmur}
+Andy Zhou et~al.
+\newblock The {PIMMUR} principles: Guidelines for effective {LLM} society
+  simulations.
+\newblock \emph{arXiv preprint arXiv:2501.10868}, 2025.
+
+\end{thebibliography}

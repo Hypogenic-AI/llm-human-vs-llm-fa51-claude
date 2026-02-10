@@ -1,0 +1,177 @@
+\section{Results}
+\label{sec:results}
+
+\subsection{Experiment 1: LLMs Can Detect Prompt Style}
+\label{sec:exp1}
+
+\begin{table}[t]
+    \centering
+    \begin{tabular}{@{}lccc@{}}
+        \toprule
+        Model & Overall Acc. & Human Recall & LLM Recall \\
+        \midrule
+        \gptfour   & {\bf 93.8\%} & 87.5\% & 100\% \\
+        \claude    & {\bf 100.0\%} & 100\% & 100\% \\
+        \gemini    & 50.0\% & 0\% & 100\% \\
+        \bottomrule
+    \end{tabular}
+    \caption{Style detection accuracy (Experiment~1). \gptfour and \claude reliably distinguish human-style from LLM-style prompts. \gemini labels every prompt as ``LLM,'' achieving 50\% accuracy only through perfect LLM recall.}
+    \label{tab:style_detection}
+\end{table}
+
+As a necessary precondition for differential behavior, we first test whether LLMs can distinguish prompt styles.
+\Tabref{tab:style_detection} shows that \gptfour (93.8\%) and \claude (100\%) reliably classify prompt authorship style.
+\claude achieves perfect classification on all 80 samples.
+\gemini, however, labels every prompt as LLM-generated, achieving 100\% LLM recall but 0\% human recall.
+This suggests \gemini has a different calibration threshold for what constitutes ``human'' text, but the asymmetric bias itself is informative: the model has learned a notion of LLM-style text, even if its decision boundary is miscalibrated.
+
+\subsection{Experiment 2: Factual QA}
+\label{sec:exp2}
+
+\begin{table}[t]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lccccccc@{}}
+        \toprule
+        \multirow{2}{*}{Model} & \multicolumn{3}{c}{Accuracy (\%)} & \multicolumn{3}{c}{Mean Words} & McNemar \\
+        \cmidrule(lr){2-4} \cmidrule(lr){5-7}
+        & \humanstyle & \llmstyle & \neutralstyle & \humanstyle & \llmstyle & \neutralstyle & $p$ (H vs.\ L) \\
+        \midrule
+        \gptfour   & 88.3 & 85.0 & 86.7 & 43  & {\bf 79}  & 27  & 0.48 \\
+        \claude    & 85.0 & {\bf 90.0} & 88.3 & 54  & {\bf 106} & 48  & 0.25 \\
+        \gemini    & 11.7 & 3.3  & 13.3 & 5   & 5    & 6   & --- \\
+        \bottomrule
+    \end{tabular}%
+    }
+    \caption{Factual QA results on \triviaqa (Experiment~2). Accuracy differences between styles are small and not statistically significant. However, \llmstyle prompts elicit dramatically longer responses: 86\% longer for \gptfour (Cohen's $d = -1.00$, $p < 10^{-9}$) and 96\% longer for \claude ($d = -1.65$, $p < 10^{-15}$). \gemini results are unreliable due to response truncation.}
+    \label{tab:factual_qa}
+\end{table}
+
+\Tabref{tab:factual_qa} presents the factual QA results.
+Accuracy differences between \humanstyle and \llmstyle prompts are small and not statistically significant for either \gptfour ($+3.3\%$ for human, McNemar $p = 0.48$) or \claude ($-5.0\%$ for human, $p = 0.25$).
+
+The striking finding is in response length.
+\llmstyle prompts elicit dramatically longer responses: \gptfour produces 79 words on average for \llmstyle versus 43 for \humanstyle (86\% increase, Cohen's $d = -1.00$, $p = 3.1 \times 10^{-10}$), and \claude produces 106 versus 54 words (96\% increase, $d = -1.65$, $p = 2.3 \times 10^{-16}$).
+These are large effect sizes by conventional standards.
+
+\subsection{Experiment 3: Reasoning}
+\label{sec:exp3}
+
+\begin{table}[t]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}lcccccc@{}}
+        \toprule
+        \multirow{2}{*}{Model} & \multicolumn{3}{c}{Accuracy (\%)} & \multicolumn{2}{c}{Extraction Rate (\%)} & McNemar \\
+        \cmidrule(lr){2-4} \cmidrule(lr){5-6}
+        & \humanstyle & \llmstyle & \neutralstyle & \humanstyle & \llmstyle & $p$ (H vs.\ L) \\
+        \midrule
+        \gptfour   & 63.3 & {\bf 83.3} & 78.3 & 75  & {\bf 100} & {\bf 0.003} \\
+        \claude    & 75.0 & 76.7 & {\bf 86.7} & 85  & 90  & 1.000 \\
+        \gemini    & 46.7 & {\bf 73.3} & 73.3 & 65  & {\bf 100} & {\bf $<$0.001} \\
+        \bottomrule
+    \end{tabular}%
+    }
+    \caption{Reasoning results on \bbh (Experiment~3). \llmstyle prompts improve accuracy by 20 points for \gptfour ($p = 0.003$) and 27 points for \gemini ($p < 0.001$). The answer extraction rate reveals the mechanism: human-style prompts produce verbose responses from which a clear yes/no answer often cannot be parsed.}
+    \label{tab:reasoning}
+\end{table}
+
+\Tabref{tab:reasoning} presents the reasoning results, which contain our most striking finding.
+\llmstyle prompts improve accuracy by 20 percentage points for \gptfour (63.3\% $\rightarrow$ 83.3\%, McNemar $p = 0.003$) and by 27 points for \gemini (46.7\% $\rightarrow$ 73.3\%, $p < 0.001$).
+For \claude, the difference is small and not significant (75.0\% vs.\ 76.7\%, $p = 1.0$).
+
+{\bf The response format mechanism.}
+The answer extraction rate column in \tabref{tab:reasoning} reveals the mechanism behind these accuracy gaps.
+For \gptfour, a clear yes/no answer can be extracted from only 75\% of human-style responses versus 100\% of LLM-style responses.
+For \gemini, the gap is even larger: 65\% versus 100\%.
+
+This pattern emerges because the models interpret prompt style as a signal for expected response format:
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+    \item \humanstyle prompts $\rightarrow$ ``This is a conversation. I should explain my reasoning and provide context.'' $\rightarrow$ Verbose, explanatory responses where the yes/no answer is buried or implicit.
+    \item \llmstyle prompts $\rightarrow$ ``This is a structured query. I should provide a direct, formatted answer.'' $\rightarrow$ Concise responses with clear yes/no answers.
+\end{itemize}
+
+This is not merely a measurement artifact.
+It represents a genuine behavioral difference with practical consequences: if an LLM-to-LLM pipeline uses human-style prompts, downstream processing receives verbose, hard-to-parse responses rather than structured outputs.
+
+Notably, \neutralstyle prompts---which include the explicit instruction ``Answer yes or no''---often outperform both styled variants.
+For \claude, neutral prompts yield the highest accuracy (86.7\%), suggesting that both human and LLM styling introduce noise compared to minimalist prompts.
+
+\subsection{Experiment 4: Response Style}
+\label{sec:exp4}
+
+\begin{table}[t]
+    \centering
+    \resizebox{\textwidth}{!}{%
+    \begin{tabular}{@{}llcccc@{}}
+        \toprule
+        Model & Metric & \humanstyle Mean & \llmstyle Mean & Cohen's $d$ & $p$-value \\
+        \midrule
+        \multirow{4}{*}{\gptfour}
+        & Word Count      & 211  & {\bf 344} & {\bf 2.15} & $<$0.0001 \\
+        & Sentence Count  & 17.9 & {\bf 29.8} & {\bf 1.71} & $<$0.0001 \\
+        & Formal Words    & 0.0  & {\bf 0.6} & {\bf 1.41} & $<$0.0001 \\
+        & Contractions    & 0.3  & 0.2  & $-0.08$ & 0.73 \\
+        \midrule
+        \multirow{4}{*}{\claude}
+        & Word Count      & 194  & {\bf 304} & {\bf 4.48} & $<$0.0001 \\
+        & Sentence Count  & 7.5  & {\bf 10.3} & {\bf 0.68} & 0.0001 \\
+        & Formal Words    & 0.0  & {\bf 0.7} & {\bf 2.13} & $<$0.0001 \\
+        & Contractions    & 2.1  & 1.8  & $-0.18$ & 0.24 \\
+        \bottomrule
+    \end{tabular}%
+    }
+    \caption{Response style analysis on open-ended questions (Experiment~4). \llmstyle prompts elicit dramatically longer and more formal responses. Effect sizes for word count ($d = 2.15$--$4.48$) and formal vocabulary ($d = 1.41$--$2.13$) are very large. Contraction usage does not differ significantly.}
+    \label{tab:response_style}
+\end{table}
+
+\Tabref{tab:response_style} presents the response style analysis, which yields our most robust finding.
+\llmstyle prompts elicit responses that are 63\% longer for \gptfour (211 $\rightarrow$ 344 words, $d = 2.15$) and 57\% longer for \claude (194 $\rightarrow$ 304 words, $d = 4.48$).
+These effect sizes are very large by any standard---Cohen's $d > 0.8$ is conventionally considered ``large,'' and our effects exceed this threshold by factors of 2--5$\times$.
+
+Formal vocabulary usage also increases significantly ($d = 1.41$ for \gptfour, $d = 2.13$ for \claude), while contraction usage shows no significant difference.
+This asymmetry suggests that the models primarily adapt by \textit{adding} formality markers rather than \textit{removing} informality markers.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/exp4_style_heatmap.png}
+    \caption{Heatmap of Cohen's $d$ effect sizes for response style metrics across models (Experiment~4). Darker cells indicate larger effects. Word count and formal vocabulary show consistently large effects across both models, while contraction usage shows near-zero effects.}
+    \label{fig:style_heatmap}
+\end{figure}
+
+\Figref{fig:style_heatmap} visualizes the effect sizes as a heatmap, highlighting the consistency of the word count and formality effects across models and the absence of contraction effects.
+
+\subsection{Experiment 5: Explicit Attribution Has No Effect}
+\label{sec:exp5}
+
+\begin{table}[t]
+    \centering
+    \begin{tabular}{@{}lcccccc@{}}
+        \toprule
+        \multirow{2}{*}{Model} & \multicolumn{3}{c}{Accuracy (\%)} & \multicolumn{2}{c}{Mean Words} \\
+        \cmidrule(lr){2-4} \cmidrule(lr){5-6}
+        & None & Human Attr. & AI Attr. & Human Attr. & AI Attr. \\
+        \midrule
+        \gptfour   & 85.0 & 82.5 & 82.5 & 25 & 23 \\
+        \claude    & 85.0 & 87.5 & 85.0 & 56 & 56 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Explicit attribution results (Experiment~5). Prepending ``A human user asks you:'' versus ``An AI assistant asks you:'' produces no significant differences in accuracy or response length for either model (all $p > 0.1$).}
+    \label{tab:attribution}
+\end{table}
+
+\Tabref{tab:attribution} shows that explicitly telling the model the prompt source has no measurable effect.
+Accuracy differences between human attribution, AI attribution, and no attribution are within 2.5 percentage points for both models, and none are statistically significant (all $p > 0.1$).
+Response lengths are virtually identical across conditions.
+
+This null result is informative: it establishes that the large behavioral differences observed in Experiments~2--4 are driven by \textit{implicit} style detection, not by \textit{explicit} source awareness.
+The models respond to how the prompt is written, not to what the prompt says about its origin.
+
+\begin{figure}[t]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/key_findings.png}
+    \caption{Overview of key findings across all five experiments. LLM-style prompts produce large effects on response length and reasoning accuracy, while explicit attribution has no measurable impact. See \secref{sec:appendix} for additional visualizations.}
+    \label{fig:key_findings}
+\end{figure}
+
+\Figref{fig:key_findings} summarizes the key findings across all experiments, illustrating the contrast between the large implicit style effects and the null explicit attribution effect.

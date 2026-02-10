@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "hey can you explain the causes of inflation?"}], "temperature": 0.0, "max_tokens": 500, "response": "Of course! Explaining the causes of inflation is a great question. At its core, inflation is", "timestamp": 1770755053.1272502}

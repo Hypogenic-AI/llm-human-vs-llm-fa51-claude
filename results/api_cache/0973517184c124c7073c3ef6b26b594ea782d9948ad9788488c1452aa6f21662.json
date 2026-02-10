@@ -1,0 +1,1 @@
+{"model": "gpt-4.1", "model_id": "gpt-4.1", "messages": [{"role": "user", "content": "In which state was Gene Vincent born?"}], "temperature": 0.0, "max_tokens": 200, "response": "Gene Vincent was born in the state of Virginia.", "timestamp": 1770750411.2562032}

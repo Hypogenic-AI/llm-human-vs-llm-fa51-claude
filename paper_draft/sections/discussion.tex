@@ -1,0 +1,81 @@
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Interpretation of Results}
+
+Our results provide strong evidence that LLMs adapt their behavior based on prompt style, with three key patterns.
+
+\para{Style-matching as the primary mechanism.}
+The most consistent effect across all experiments is that LLMs mirror the formality level of their input.
+Formal, structured prompts elicit formal, structured responses; casual prompts elicit casual, conversational responses.
+This is consistent with the next-token prediction objective: models trained predominantly on human text have learned that formal queries are typically followed by formal responses, and casual queries by casual ones.
+The RLHF training objective to ``be helpful'' appears to manifest differently depending on perceived audience: explanatory and conversational for perceived human users, structured and direct for perceived machine consumers.
+
+\para{Response format, not reasoning quality, drives accuracy differences.}
+The 20--27 percentage point accuracy gap on \bbhshort is striking, but it does not indicate that LLMs reason \textit{better} when prompted in LLM style.
+Rather, LLM-style prompts (which include explicit format instructions like ``Provide your answer as yes or no'') elicit responses from which answers can be reliably extracted.
+Human-style prompts trigger explanatory responses where the answer is buried, implicit, or hedged.
+The conditional accuracy---among responses where a clear answer \textit{can} be extracted---is much more similar across styles, suggesting the underlying reasoning is comparable.
+
+This distinction matters practically: in an LLM-to-LLM pipeline, the downstream model needs parseable outputs.
+If upstream prompts are written in human style, the pipeline's effective accuracy may drop substantially even though the reasoning quality is unchanged.
+
+\para{Implicit detection, not explicit awareness.}
+The null result in Experiment~5 is important.
+Models do not respond to \textit{being told} the prompt comes from a human or AI; they respond to \textit{how the prompt reads}.
+This suggests the adaptation is an emergent property of language modeling rather than a deliberate policy.
+The models have learned correlations between input style and appropriate output style from their training data, without any explicit mechanism for prompter identification.
+
+\subsection{Cross-Model Variation}
+
+The three models show distinct patterns that likely reflect differences in training:
+\begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]
+    \item \gptfour shows the strongest accuracy effect on \bbhshort (20-point gap) and robust style-matching in response length.
+    \item \claude shows the strongest response length effects ($d = 4.48$ for word count) and perfect style detection accuracy, but minimal accuracy differences on \bbhshort, possibly because its training promotes consistent response formatting regardless of prompt style.
+    \item \gemini shows the largest \bbhshort accuracy gap (27 points) but labels all prompts as LLM-generated in style detection, suggesting a different calibration threshold. Its consistently high answer extraction rate for LLM-style prompts (100\%) versus low rate for human-style (65\%) indicates a strong tendency to provide structured outputs when prompted formally.
+\end{itemize}
+
+\subsection{Limitations}
+
+\para{Constructed prompts.}
+Our human-style and LLM-style prompts were systematically constructed rather than collected from actual humans and LLMs.
+Real human prompts exhibit greater variety in informality, and real LLM prompts may differ from our templates.
+Future work should validate these findings with naturally occurring prompts from sources such as ShareGPT or LMSYS-Chat.
+
+\para{Style--instruction confound.}
+LLM-style prompts include explicit output format instructions (``respond with yes or no'') that human-style prompts lack.
+This conflates style with instruction specificity.
+A follow-up study should create human-style prompts that also include format instructions (\eg ``just say yes or no, ok?'') to disentangle these factors.
+
+\para{Sample sizes.}
+With 40--80 samples per condition, we have moderate statistical power.
+The large effect sizes we observe ($d > 2$ for response style) are detectable at these sample sizes, but smaller effects may be missed.
+Scaling to 500+ samples would provide tighter confidence intervals.
+
+\para{Limited task diversity.}
+We test factual QA, binary reasoning, and open-ended generation.
+Other task types---coding, mathematical reasoning, creative writing---may show different patterns.
+The format-dependent accuracy effect may be especially pronounced in tasks requiring structured outputs.
+
+\para{Gemini data quality.}
+\gemini produced very short, often truncated responses for \triviaqa and open-ended tasks, making these results unreliable.
+The \bbhshort results (requiring only yes/no) remain valid.
+
+\para{Single run.}
+Temperature $T = 0.0$ ensures determinism but does not capture variance from stochastic generation.
+Running with $T > 0$ and multiple seeds would provide confidence intervals on all metrics.
+
+\subsection{Broader Implications}
+
+\para{For multi-agent systems.}
+Our results suggest that LLM-to-LLM pipelines should use formal, structured prompt styles to obtain parseable, structured outputs.
+System designers who use casual or human-like prompt templates may inadvertently reduce the reliability of downstream processing.
+
+\para{For evaluation methodology.}
+Prompt style is a significant confound in LLM evaluation.
+Benchmarks using human-written prompts may not reflect performance in deployment settings where prompts are machine-generated, and vice versa.
+Evaluation suites should report results across multiple prompt styles or explicitly control for this variable.
+
+\para{For AI safety.}
+The fact that LLMs adapt behavior based on inferred prompter identity---even when that inference is based on stylistic cues rather than explicit signals---raises questions about predictability and controllability.
+If a model behaves one way for perceived human users and another way for perceived machine users, its behavior in deployment may differ from its behavior during human evaluation.

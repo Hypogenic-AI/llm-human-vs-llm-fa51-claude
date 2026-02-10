@@ -1,0 +1,1 @@
+{"model": "gpt-4.1", "model_id": "gpt-4.1", "messages": [{"role": "user", "content": "Which highway was Revisited in a classic 60s album by Bob Dylan?"}], "temperature": 0.0, "max_tokens": 200, "response": "The highway revisited in a classic 60s album by Bob Dylan is **Highway 61**.\n\nThe album is **\"Highway 61 Revisited\"** (released in 1965).", "timestamp": 1770750235.310795}

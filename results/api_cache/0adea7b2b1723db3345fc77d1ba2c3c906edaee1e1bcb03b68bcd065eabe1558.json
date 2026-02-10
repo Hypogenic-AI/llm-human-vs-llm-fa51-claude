@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "Answer this question: What is Mel Gibson's middle name?"}], "temperature": 0.0, "max_tokens": 200, "response": "Mel Gibson's middle name is **", "timestamp": 1770751770.0811772}

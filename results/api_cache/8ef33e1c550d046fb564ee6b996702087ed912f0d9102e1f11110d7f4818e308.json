@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "ok which brit broke the land speed record in 1990 in thrust 2?"}], "temperature": 0.0, "max_tokens": 200, "response": "That's a great question, but", "timestamp": 1770751636.7726345}

@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "Answer this question: Brandon Lee died during the making of which movie?"}], "temperature": 0.0, "max_tokens": 200, "response": "Brandon Lee died during the making of the", "timestamp": 1770751675.3583195}

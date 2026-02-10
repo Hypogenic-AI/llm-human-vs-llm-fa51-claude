@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "hey, is the following sentence plausible? \"jack flaherty walked to first base in the national league championship series.\""}], "temperature": 0.0, "max_tokens": 200, "response": "That's an excellent", "timestamp": 1770752616.1423378}

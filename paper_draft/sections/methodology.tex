@@ -1,0 +1,105 @@
+\section{Methodology}
+\label{sec:methodology}
+
+We design five experiments to test whether LLMs behave differently when receiving human-style versus LLM-style prompts.
+Each experiment isolates a different facet of the hypothesis: style detection (Experiment~1), factual accuracy (Experiment~2), reasoning accuracy (Experiment~3), response characteristics (Experiment~4), and explicit attribution effects (Experiment~5).
+
+\subsection{Prompt Style Construction}
+\label{sec:prompt_construction}
+
+For each question, we construct three prompt variants that preserve semantic content while varying authorship style.
+
+\para{\humanstyle prompts} use casual tone, contractions, and direct phrasing without elaborate framing.
+For example: \textit{``hey can you explain how photosynthesis works?''} or \textit{``do you know who was the man behind the chipmunks?''}
+
+\para{\llmstyle prompts} use formal register, structured phrasing, explicit output format requests, and hedging language.
+For example: \textit{``I would appreciate it if you could provide the answer to the following question: Who was the man behind The Chipmunks. Please ensure your response is accurate and well-considered.''}
+
+\para{\neutralstyle prompts} use minimal framing with no style markers: \textit{``Answer this question: Who was the man behind The Chipmunks?''}
+
+\Tabref{tab:prompt_examples} shows a complete example for both \triviaqa and \bbhshort tasks.
+
+\begin{table*}[t]
+    \centering
+    \renewcommand{\arraystretch}{1.25}
+    \resizebox{\textwidth}{!}{%
+    \small
+    \begin{tabular}{@{}lp{12cm}@{}}
+    \toprule
+    \textbf{Style} & \textbf{Prompt} \\
+    \midrule \midrule
+    \multicolumn{2}{@{}l}{\textit{TriviaQA Example}} \\
+    \midrule
+    \humanstyle & hey who was the man behind the chipmunks? \\
+    \llmstyle & I would appreciate it if you could provide the answer to the following question: Who was the man behind The Chipmunks. Please ensure your response is accurate and well-considered. \\
+    \neutralstyle & Answer this question: Who was the man behind The Chipmunks? \\
+    \midrule
+    \multicolumn{2}{@{}l}{\textit{BBH Sports Understanding Example}} \\
+    \midrule
+    \humanstyle & hey, is the following sentence plausible? ``adam thielen scored in added time.'' \\
+    \llmstyle & Please carefully evaluate the following statement and determine whether it is plausible or not. Provide your answer as `yes' or `no'. Is the following sentence plausible? ``Adam Thielen scored in added time.'' Please ensure your assessment is thorough and well-reasoned. \\
+    \neutralstyle & Is the following sentence plausible? ``Adam Thielen scored in added time.'' Answer yes or no. \\
+    \bottomrule
+    \end{tabular}
+    }
+    \caption{Example prompt pairs for \triviaqa and \bbhshort tasks. All three variants preserve the same semantic question while varying authorship style. Note that \llmstyle prompts include explicit format instructions (``Provide your answer as yes or no''), reflecting a genuine stylistic difference between how humans and LLMs typically frame requests.}
+    \label{tab:prompt_examples}
+\end{table*}
+
+\subsection{Datasets}
+\label{sec:datasets}
+
+We use three data sources spanning different task types:
+
+\begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]
+    \item \textbf{\triviaqa}~\citep{joshi2017triviaqa}: 60--80 open-domain factual questions with verified ground-truth answers and aliases. We use substring matching for evaluation.
+    \item \textbf{\bbh}~\citep{suzgun2023bbh}: 60 binary plausibility judgment questions from the BIG-Bench Hard suite. We use exact match on extracted yes/no answers.
+    \item \textbf{Custom open-ended questions}: 40 hand-crafted questions on well-established factual topics (\eg ``How does photosynthesis work?''), designed to elicit extended responses for style analysis.
+\end{itemize}
+
+\subsection{Models}
+\label{sec:models}
+
+We test three frontier instruction-tuned models spanning different providers and training methodologies:
+
+\begin{itemize}[leftmargin=*,itemsep=2pt,topsep=2pt]
+    \item \gptfour (OpenAI, accessed via OpenAI API)
+    \item \claude (Anthropic, accessed via OpenRouter)
+    \item \gemini (Google, accessed via OpenRouter)
+\end{itemize}
+
+All experiments use temperature $T = 0.0$ for deterministic outputs and reproducibility.
+Maximum token limits are set to 200 for QA tasks and 500 for open-ended questions.
+
+\subsection{Experiment Descriptions}
+\label{sec:experiments}
+
+\para{Experiment 1: Style Detection.}
+We test whether LLMs can distinguish human-style from LLM-style prompts---a necessary precondition for differential behavior.
+We present 40 prompt pairs (80 total) and ask each model to classify whether each prompt was written by a human or an LLM.
+We report overall accuracy, human recall, and LLM recall.
+
+\para{Experiment 2: Factual QA.}
+We send 60 \triviaqa questions in all three style variants to each model.
+We measure accuracy via substring matching against ground-truth answer aliases and report mean response length in words.
+
+\para{Experiment 3: Reasoning.}
+We send 60 \bbhshort questions in all three style variants to each model.
+We extract yes/no answers from responses and compute exact-match accuracy.
+We additionally report the \textit{answer extraction rate}---the proportion of responses from which a clear yes/no answer could be parsed---to distinguish reasoning errors from format errors.
+
+\para{Experiment 4: Response Style.}
+We send 40 open-ended questions in human-style and LLM-style variants to \gptfour and \claude.
+We measure word count, sentence count, formal word count (academic/formal vocabulary), and contraction count.
+
+\para{Experiment 5: Explicit Attribution.}
+We test whether explicitly stating the prompt source matters.
+We prepend \textit{``A human user asks you:''} or \textit{``An AI assistant asks you:''} to 40 \triviaqa questions in neutral style and compare against an unattributed baseline.
+
+\subsection{Statistical Analysis}
+\label{sec:statistics}
+
+For accuracy comparisons on paired binary outcomes, we use McNemar's test.
+For continuous metrics (word count, formality), we use paired $t$-tests and report Cohen's $d$ effect sizes~\citep{cohen1988statistical}.
+We interpret $d = 0.2$ as small, $d = 0.5$ as medium, and $d \geq 0.8$ as large.
+All reported $p$-values are two-sided.

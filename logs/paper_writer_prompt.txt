@@ -1,0 +1,943 @@
+You are an academic paper writer. Generate a complete NEURIPS style paper
+based on the experiment results provided.
+
+════════════════════════════════════════════════════════════════════════════════
+                         IMPORTANT: BEFORE YOU START
+════════════════════════════════════════════════════════════════════════════════
+
+Before writing any content, you MUST complete these steps:
+
+1. READ THE SKILL: Review the paper-writer skill at templates/skills/paper-writer/SKILL.md
+2. READ THE STYLE GUIDE: Study templates/paper_writing/lab_style_guide.md carefully
+3. REVIEW EXAMPLES: Browse paper_examples/ for formatting and language patterns:
+   - Look at sections/1.introduction.tex for language style
+   - Look at tables/*.tex for table formatting
+   - Look at commands/*.tex for macro usage
+4. USE COMMAND TEMPLATES: Copy templates/paper_writing/commands/ to paper_draft/commands/
+
+CRITICAL: Reference example papers for FORMATTING and LANGUAGE STYLE only.
+Do NOT copy content, phrasing, or narrative structure from the example papers.
+The examples are in a different research domain - focus only on presentation style.
+
+════════════════════════════════════════════════════════════════════════════════
+                            EXPERIMENT REPORT
+════════════════════════════════════════════════════════════════════════════════
+
+# Do LLMs Behave Differently When the Prompter Is Human vs Another LLM?
+
+## 1. Executive Summary
+
+We tested whether large language models respond differently to prompts written in human style versus LLM style, with semantic content held constant. Across five experiments on three frontier models (GPT-4.1, Claude Sonnet 4.5, Gemini 2.5 Pro), we found **strong evidence that prompt style significantly affects LLM behavior**. The most striking finding: LLM-style prompts improve reasoning task accuracy by 20 percentage points (GPT-4.1) to 27 points (Gemini) on BBH Sports Understanding (p=0.003 and p&lt;0.001 respectively), primarily because human-style prompts trigger verbose, conversational responses that fail to provide direct answers. On open-ended questions, LLM-style prompts elicit responses that are 57-63% longer (Cohen&#39;s d = 2.15-4.48, p&lt;0.0001) and use significantly more formal language. However, explicit attribution (&#34;this is from a human/AI&#34;) produces negligible effects, suggesting the behavioral adaptation is driven by implicit style detection rather than explicit source awareness.
+
+## 2. Goal
+
+**Hypothesis**: LLMs exhibit measurably different behaviors when receiving prompts written in a recognizably human style versus a recognizably LLM style, even when the semantic content is controlled.
+
+**Why this matters**: As LLMs are increasingly used in multi-agent systems (where LLMs prompt other LLMs), understanding whether prompt style affects behavior has critical implications for:
+- **AI safety**: If models behave differently based on perceived prompter identity, this could be exploited or could introduce systematic biases in AI pipelines.
+- **Multi-agent reliability**: LLM-to-LLM communication chains may produce different outputs than human-to-LLM chains, even with identical content.
+- **Prompt engineering**: Understanding style-dependent behavior enables more effective prompt design.
+
+**Gap in existing work**: While Kervadec et al. (2023) showed mechanistic processing differences for machine-optimized (nonsensical) prompts in base models, and Sharma et al. (2024) demonstrated sycophancy from perceived user preferences, **no study has tested whether instruction-tuned LLMs respond differently to well-formed prompts varying only in human-vs-LLM authorship style**.
+
+## 3. Data Construction
+
+### Dataset Description
+
+We used three data sources:
+
+| Dataset | Source | N Used | Task Type |
+|---------|--------|--------|-----------|
+| TriviaQA | HuggingFace (mandarjoshi/trivia_qa) | 60-80 | Open-domain factual QA |
+| BBH Sports Understanding | BIG-Bench Hard | 60 | Binary plausibility judgment |
+| Custom open-ended questions | Hand-crafted | 40 | Open-ended knowledge explanations |
+
+### Prompt Style Construction
+
+For each question, we generated three prompt variants while preserving semantic content:
+
+**Human-style** characteristics:
+- Casual tone, contractions, occasional informality
+- Direct questions without elaborate framing
+- Examples: &#34;hey can you explain how photosynthesis works?&#34;, &#34;do you know who was the man behind the chipmunks?&#34;
+
+**LLM-style** characteristics:
+- Formal register, structured phrasing
+- Verbose framing with hedging (&#34;I would appreciate,&#34; &#34;could you please assist&#34;)
+- Explicit output format requests
+- Examples: &#34;I would appreciate it if you could provide the answer to the following question: Who was the man behind The Chipmunks. Please ensure your response is accurate and well-considered.&#34;
+
+**Neutral-style** (baseline):
+- Minimal framing: &#34;Answer this question: [question]&#34;
+- No style markers in either direction
+
+### Example Prompt Pairs
+
+**TriviaQA Example:**
+| Style | Prompt |
+|-------|--------|
+| Human | hey who was the man behind the chipmunks? |
+| LLM | I would appreciate it if you could provide the answer to the following question: Who was the man behind The Chipmunks. Please ensure your response is accurate and well-considered. |
+| Neutral | Answer this question: Who was the man behind The Chipmunks? |
+
+**BBH Example:**
+| Style | Prompt |
+|-------|--------|
+| Human | hey, is the following sentence plausible? &#34;adam thielen scored in added time.&#34; |
+| LLM | Please carefully evaluate the following statement and determine whether it is plausible or not. Provide your answer as &#39;yes&#39; or &#39;no&#39;. Is the following sentence plausible? &#34;Adam Thielen scored in added time.&#34; Please ensure your assessment is thorough and well-reasoned. |
+| Neutral | Is the following sentence plausible? &#34;Adam Thielen scored in added time.&#34; Answer yes or no. |
+
+### Data Quality
+- All TriviaQA questions have verified ground-truth answers with aliases
+- BBH Sports Understanding has binary (yes/no) gold labels
+- Open-ended questions are factual and well-established topics
+- Prompt pairs were verified to preserve semantic content
+
+## 4. Experiment Description
+
+### Methodology
+
+#### High-Level Approach
+We conducted five experiments testing different facets of the hypothesis:
+
+1. **Experiment 1 (Style Detection)**: Can LLMs distinguish human-style from LLM-style prompts? (Necessary precondition)
+2. **Experiment 2 (Factual QA)**: Does prompt style affect factual accuracy on TriviaQA?
+3. **Experiment 3 (Reasoning)**: Does prompt style affect reasoning on BBH Sports Understanding?
+4. **Experiment 4 (Response Style)**: Does prompt style affect response characteristics (length, formality, etc.) on open-ended questions?
+5. **Experiment 5 (Explicit Attribution)**: Does explicitly telling the model the prompt source matter?
+
+#### Why This Method?
+Content-controlled prompt pairs isolate style as the only variable. Testing across multiple tasks (factual recall, reasoning, open-ended generation) reveals whether effects are task-dependent. Multiple models test generalizability.
+
+### Implementation Details
+
+#### Tools and Libraries
+| Library | Version | Purpose |
+|---------|---------|---------|
+| Python | 3.12.8 | Runtime |
+| openai | 2.19.0 | API client for OpenAI + OpenRouter |
+| numpy | 2.2.5 | Numerical operations |
+| pandas | 2.2.3 | Data manipulation |
+| scipy | 1.17.0 | Statistical tests |
+| matplotlib | 3.10.8 | Visualization |
+| seaborn | 0.13.2 | Statistical plots |
+| datasets | 3.6.0 | HuggingFace data loading |
+
+#### Models Tested
+| Model | Provider | API Model ID |
+|-------|----------|--------------|
+| GPT-4.1 | OpenAI | gpt-4.1 |
+| Claude Sonnet 4.5 | OpenRouter | anthropic/claude-sonnet-4.5 |
+| Gemini 2.5 Pro | OpenRouter | google/gemini-2.5-pro |
+
+#### Hyperparameters
+| Parameter | Value | Rationale |
+|-----------|-------|-----------|
+| Temperature | 0.0 | Deterministic for reproducibility |
+| Max tokens | 200 (QA), 500 (open-ended) | Sufficient for answers |
+| Random seed | 42 | Reproducibility of prompt generation |
+
+### Experimental Protocol
+
+#### Reproducibility Information
+- All API responses cached to disk (SHA-256 keyed)
+- Random seeds set for all stochastic processes
+- Exact prompts stored in results JSON files
+- Single run per condition (temperature=0 ensures determinism)
+
+#### Evaluation Metrics
+- **Accuracy**: Substring match for TriviaQA; exact match for BBH yes/no
+- **Answer extraction rate**: Whether a clear answer could be parsed from the response
+- **Response length**: Word count
+- **Formal word count**: Count of formal/academic vocabulary
+- **Contraction count**: Informal language marker
+- **Hedging count**: Uncertainty/hedging phrases
+
+### Raw Results
+
+#### Experiment 1: Style Detection
+
+| Model | Overall Accuracy | Human Recall | LLM Recall |
+|-------|-----------------|--------------|------------|
+| GPT-4.1 | **93.8%** | 87.5% | 100% |
+| Claude Sonnet 4.5 | **100.0%** | 100% | 100% |
+| Gemini 2.5 Pro | 50.0% | 0% | 100% |
+
+**Key finding**: GPT-4.1 and Claude can reliably distinguish human-style from LLM-style prompts. Gemini shows a strong bias toward labeling everything as &#34;LLM&#34; (100% LLM recall, 0% human recall), suggesting a different calibration threshold.
+
+#### Experiment 2: Factual QA (TriviaQA)
+
+| Model | Human Acc | LLM Acc | Neutral Acc | Human Words | LLM Words | Neutral Words |
+|-------|-----------|---------|-------------|-------------|-----------|---------------|
+| GPT-4.1 | 88.3% | 85.0% | 86.7% | 43 | **79** | 27 |
+| Claude Sonnet 4.5 | 85.0% | **90.0%** | 88.3% | 54 | **106** | 48 |
+| Gemini 2.5 Pro* | 11.7% | 3.3% | 13.3% | 5 | 5 | 6 |
+
+*Gemini results unreliable due to response truncation — very short responses don&#39;t contain the answer.
+
+**Statistical tests (Human vs LLM style):**
+
+| Model | Accuracy Diff | McNemar p | Word Count Cohen&#39;s d | Word Count p |
+|-------|--------------|-----------|---------------------|-------------|
+| GPT-4.1 | +3.3% (H&gt;L) | 0.48 (ns) | **-1.00** | **3.1e-10** |
+| Claude Sonnet 4.5 | -5.0% (L&gt;H) | 0.25 (ns) | **-1.65** | **2.3e-16** |
+
+**Key finding**: Accuracy differences are small and not significant. But **response length differences are massive and highly significant** — LLM-style prompts elicit 86% longer responses (GPT-4.1) to 95% longer responses (Claude).
+
+#### Experiment 3: Reasoning (BBH Sports Understanding)
+
+| Model | Human Acc | LLM Acc | Neutral Acc | Human Extract Rate | LLM Extract Rate |
+|-------|-----------|---------|-------------|--------------------|--------------------|
+| GPT-4.1 | 63.3% | **83.3%** | 78.3% | 75% | **100%** |
+| Claude Sonnet 4.5 | 75.0% | 76.7% | **86.7%** | 85% | 90% |
+| Gemini 2.5 Pro | 46.7% | **73.3%** | 73.3% | 65% | **100%** |
+
+**Statistical tests:**
+
+| Model | Acc Diff (H-L) | McNemar p | Significant? |
+|-------|---------------|-----------|--------------|
+| GPT-4.1 | **-20.0%** | **0.003** | **Yes** |
+| Claude Sonnet 4.5 | -1.7% | 1.000 | No |
+| Gemini 2.5 Pro | **-26.7%** | **&lt;0.001** | **Yes** |
+
+**Key finding**: Human-style prompts reduce reasoning accuracy by 20-27 percentage points for GPT-4.1 and Gemini (both statistically significant). The mechanism: human-style prompts trigger verbose, explanatory responses where the yes/no answer is buried or implicit, while LLM-style prompts (which request structured output) get direct answers. This is a **genuine behavioral difference** — the models choose different response formats based on perceived prompter style.
+
+#### Experiment 4: Response Style (Open-Ended Questions)
+
+**GPT-4.1:**
+| Metric | Human-Prompt Mean | LLM-Prompt Mean | Cohen&#39;s d | p-value |
+|--------|-------------------|-----------------|-----------|---------|
+| Word Count | 211 | **344** | **2.15** | **&lt;0.0001** |
+| Sentence Count | 17.9 | **29.8** | **1.71** | **&lt;0.0001** |
+| Formal Words | 0.0 | **0.6** | **1.41** | **&lt;0.0001** |
+| Contractions | 0.3 | 0.2 | -0.08 | 0.73 (ns) |
+
+**Claude Sonnet 4.5:**
+| Metric | Human-Prompt Mean | LLM-Prompt Mean | Cohen&#39;s d | p-value |
+|--------|-------------------|-----------------|-----------|---------|
+| Word Count | 194 | **304** | **4.48** | **&lt;0.0001** |
+| Sentence Count | 7.5 | **10.3** | **0.68** | **0.0001** |
+| Formal Words | 0.0 | **0.7** | **2.13** | **&lt;0.0001** |
+| Contractions | 2.1 | 1.8 | -0.18 | 0.24 (ns) |
+
+**Key finding**: LLM-style prompts elicit dramatically longer (d=2.15-4.48), more formal (d=1.41-2.13) responses. These are **very large effect sizes** by any standard (d&gt;0.8 is &#34;large&#34;). The effect is consistent across both GPT-4.1 and Claude.
+
+#### Experiment 5: Explicit Attribution
+
+| Model | No Attribution Acc | Human Attr. Acc | AI Attr. Acc | Human Words | AI Words |
+|-------|-------------------|-----------------|-------------|-------------|----------|
+| GPT-4.1 | 85.0% | 82.5% | 82.5% | 25 | 23 |
+| Claude Sonnet 4.5 | 85.0% | 87.5% | 85.0% | 56 | 56 |
+
+**Statistical tests**: No significant differences for any metric (all p &gt; 0.1).
+
+**Key finding**: Explicitly telling the model &#34;this is from a human&#34; vs &#34;this is from an AI&#34; produces **no measurable effect**. The behavioral differences observed in Experiments 2-4 are driven by implicit style detection, not explicit source awareness.
+
+### Visualization Gallery
+
+All plots saved to `results/plots/`:
+- `exp1_style_detection.png` — Style detection accuracy by model
+- `exp2_factual_qa.png` — TriviaQA accuracy and response length by style
+- `exp3_reasoning.png` — BBH accuracy and response length by style
+- `exp3_refined_analysis.png` — BBH with extraction rate analysis
+- `exp4_style_heatmap.png` — Heatmap of response style effect sizes
+- `exp4_word_count_comparison.png` — Box plots of response lengths
+- `exp5_attribution.png` — Explicit attribution effects
+- `key_findings.png` — Combined overview of main results
+- `summary_overview.png` — Four-panel summary
+
+## 5. Result Analysis
+
+### Key Findings
+
+1. **LLMs can detect prompt style** (H1 supported): GPT-4.1 (93.8%) and Claude (100%) reliably distinguish human-style from LLM-style prompts. This is the necessary precondition for differential behavior.
+
+2. **LLM-style prompts improve structured task accuracy** (H2 partially supported): On BBH reasoning, LLM-style prompts yield 20-27% higher accuracy for GPT-4.1 and Gemini (p&lt;0.005). On TriviaQA, differences are small and non-significant.
+
+3. **LLM-style prompts dramatically change response style** (H3 strongly supported): Responses to LLM-style prompts are 57-63% longer (d=2.15-4.48, p&lt;0.0001), contain more formal vocabulary (d=1.41-2.13), and are more structured. This is the most robust finding.
+
+4. **Explicit attribution has no effect** (H4 not supported): Simply telling the model &#34;this is from a human/AI&#34; does not change behavior. The effect is implicit and style-driven.
+
+5. **Effects vary across models** (H5 supported): GPT-4.1 shows the strongest accuracy effects on BBH. Claude shows the strongest response length effects. Gemini shows the strongest BBH accuracy gap but different patterns on detection.
+
+### Hypothesis Testing Results
+
+**Primary hypothesis** (LLMs behave differently based on prompt style): **Strongly supported**.
+
+The effect is most clearly seen in:
+- Response length: d = 2.15-4.48, p &lt; 0.0001 (very large effect)
+- Formal vocabulary: d = 1.41-2.13, p &lt; 0.0001 (large effect)
+- BBH accuracy: 20-27% difference, p &lt; 0.005 (medium-large effect)
+
+### The Response Format Mechanism
+
+The most important insight is **why** accuracy differs on BBH: LLMs interpret prompt style as a signal for expected response format.
+
+- **Human-style prompts** → &#34;This is a conversation. I should explain my reasoning, be helpful, provide context.&#34; → Verbose, explanatory responses → Answer buried or implicit
+- **LLM-style prompts** → &#34;This is a structured query. I should provide a direct, formatted answer.&#34; → Concise, direct responses → Clear answer
+
+Evidence: On BBH, GPT-4.1&#39;s answer extraction rate is 75% for human-style vs 100% for LLM-style. Among extractable answers, conditional accuracy is much more similar, suggesting the knowledge is the same but the **presentation** changes.
+
+This is not merely a measurement artifact — it represents a **real behavioral difference** with practical consequences. If an LLM-to-LLM pipeline uses human-style prompts, downstream processing will receive verbose, hard-to-parse responses rather than structured outputs.
+
+### Surprises and Insights
+
+1. **Claude&#39;s perfect detection**: Claude Sonnet 4.5 achieved 100% accuracy in distinguishing human from LLM prompts — perfect classification on 80 samples.
+
+2. **Gemini&#39;s &#34;everything is LLM&#34; bias**: Gemini labeled every single prompt (both human and LLM) as &#34;LLM-generated,&#34; achieving 50% accuracy only by chance on the LLM class. This suggests Gemini may have a different threshold or understanding of what constitutes &#34;human&#34; text.
+
+3. **Claude performs better with LLM-style on TriviaQA**: While GPT-4.1 was slightly better with human-style prompts, Claude was more accurate with LLM-style (90% vs 85%). This could reflect different RLHF training strategies.
+
+4. **Neutral prompts often outperform both styled prompts**: On BBH, neutral &#34;Answer yes or no.&#34; prompts yielded the highest accuracy for Claude (86.7%) — suggesting both human and LLM styling introduce noise compared to minimalist prompts.
+
+### Error Analysis
+
+**BBH failure pattern** (human-style → GPT-4.1):
+- Model gives multi-paragraph analysis instead of yes/no
+- Often correctly reasons but doesn&#39;t commit to a clear answer
+- Example: &#34;The sentence is **not very plausible** in the context of...&#34; — our extractor couldn&#39;t parse this as a clear &#34;no&#34; because the model hedges
+
+**TriviaQA failure pattern** (LLM-style → Claude):
+- Model gives correct answer but buried in verbose explanation
+- Higher word count increases chance the answer substring appears somewhere → slightly higher accuracy
+- This is a measurement artifact that slightly inflates LLM-style accuracy
+
+### Limitations
+
+1. **Prompt construction**: Our human-style and LLM-style prompts were systematically constructed rather than collected from actual humans and LLMs. Real human prompts show greater variety; real LLM prompts may differ from our templates.
+
+2. **Answer extraction confound**: The BBH accuracy difference is partly driven by response format (extraction rate), not pure reasoning accuracy. However, the response format itself IS a behavioral difference.
+
+3. **Sample sizes**: 40-80 samples per condition provides moderate power. Larger samples would allow detection of smaller effects and tighter confidence intervals.
+
+4. **Limited task diversity**: We tested factual QA, binary reasoning, and open-ended generation. Other task types (coding, creative writing, math) may show different patterns.
+
+5. **Gemini data quality**: Gemini 2.5 Pro produced very short responses that were often truncated, making TriviaQA and open-ended results unreliable for this model. BBH results (yes/no) remain valid.
+
+6. **Single run**: Temperature=0.0 ensures determinism but doesn&#39;t capture variance from stochastic generation.
+
+7. **Style confounds**: LLM-style prompts include explicit output format instructions (&#34;respond with yes or no&#34;) which casual human-style prompts lack. This conflates style with instruction specificity.
+
+## 6. Conclusions
+
+### Summary
+
+**LLMs do behave differently based on prompt style.** When given prompts written in LLM style (formal, verbose, structured), models produce responses that are 57-63% longer, use more formal vocabulary, and provide more structured outputs. On reasoning tasks, this translates to 20-27 percentage point accuracy improvements for GPT-4.1 and Gemini — not because the models reason better, but because they respond in more parseable formats. Explicit attribution (&#34;this is from a human/AI&#34;) has no effect; the behavioral adaptation is driven entirely by implicit style detection.
+
+### Implications
+
+**Practical implications**:
+- LLM-to-LLM pipelines should use formal, structured prompt styles for better downstream parsing
+- Human-facing applications may benefit from understanding that casual prompts elicit more conversational (but harder to parse) responses
+- Prompt style is a significant confound that should be controlled in LLM evaluation benchmarks
+
+**Theoretical implications**:
+- LLMs have learned implicit style-matching behavior from training data — they mirror formality
+- The RLHF training objective to &#34;be helpful&#34; manifests differently depending on perceived audience: explanatory for humans, structured for machines
+- This connects to sycophancy research: models adapt not just to stated preferences but to inferred communicative context
+
+### Confidence in Findings
+
+**High confidence** in the response style differences (d &gt; 2, p &lt; 0.0001, consistent across models).
+**Moderate confidence** in the BBH accuracy findings (significant for 2/3 models, but confounded with response format).
+**Low confidence** in TriviaQA accuracy differences (not significant, small effects, Gemini data unreliable).
+**High confidence** that explicit attribution does not matter (consistent null across all models).
+
+## 7. Next Steps
+
+### Immediate Follow-ups
+
+1. **Disentangle style from instruction specificity**: Create prompt pairs where human-style prompts also include format instructions (&#34;just say yes or no&#34;) to separate style effects from format instruction effects.
+
+2. **Use real human and LLM prompts**: Collect actual human-written prompts (from ShareGPT, LMSYS Chat) and actual LLM-generated prompts rather than synthetic construction.
+
+3. **Larger sample sizes**: Scale to 500+ samples per condition for tighter confidence intervals and detection of small effects.
+
+### Alternative Approaches
+
+- **Mechanistic analysis**: Use open-weight models (Llama, Mistral) to examine internal activations for human-vs-LLM style prompts, extending Kervadec et al.&#39;s work to instruction-tuned models
+- **Sycophancy interaction**: Test whether prompt style modulates sycophancy — are LLMs more or less sycophantic to perceived machine prompters?
+- **Multi-turn effects**: Does the style adaptation persist or amplify across multi-turn conversations?
+
+### Open Questions
+
+1. Do LLMs intentionally adapt their response style, or is this an emergent property of next-token prediction on human-written data?
+2. Can this behavioral difference be exploited for prompt injection or adversarial attacks?
+3. Does fine-tuning on LLM-to-LLM conversations change these dynamics?
+4. At what point in training (pretraining vs RLHF vs instruction tuning) does this style-matching behavior emerge?
+
+## References
+
+1. Kervadec, C., Franzon, F., &amp; Baroni, M. (2023). Unnatural Language Processing: Bridging the Gap Between Synthetic and Natural Language Data. arXiv:2310.15829.
+2. Sharma, M., et al. (2024). Towards Understanding Sycophancy in Language Models. ICLR 2024. arXiv:2310.13548.
+3. Turpin, M., et al. (2023). Language Models Don&#39;t Always Say What They Think. NeurIPS 2023. arXiv:2305.04388.
+4. Razavi, N., et al. (2025). Benchmarking Prompt Sensitivity in Large Language Models. arXiv:2502.06065.
+5. Yang, C., et al. (2024). Large Language Models as Optimizers (OPRO). arXiv:2309.03409.
+6. Wei, J., et al. (2023). Simple Synthetic Data Reduces Sycophancy in Large Language Models. arXiv:2308.03958.
+
+## Appendix: Experiment Configuration
+
+```json
+{
+  &#34;seed&#34;: 42,
+  &#34;models&#34;: [&#34;gpt-4.1&#34;, &#34;claude-sonnet-4-5&#34;, &#34;gemini-2.5-pro&#34;],
+  &#34;temperature&#34;: 0.0,
+  &#34;max_tokens_qa&#34;: 200,
+  &#34;max_tokens_open&#34;: 500,
+  &#34;n_samples_exp1&#34;: 40,
+  &#34;n_samples_exp2&#34;: 60,
+  &#34;n_samples_exp3&#34;: 60,
+  &#34;n_samples_exp4&#34;: 40,
+  &#34;n_samples_exp5&#34;: 40,
+  &#34;total_api_calls&#34;: &#34;~2400&#34;,
+  &#34;execution_time&#34;: &#34;~98 minutes&#34;
+}
+```
+
+
+════════════════════════════════════════════════════════════════════════════════
+                            RESEARCH PLAN
+════════════════════════════════════════════════════════════════════════════════
+
+# Research Plan: Do LLMs Behave Differently When the Prompter Is Human vs Another LLM?
+
+## Motivation &amp; Novelty Assessment
+
+### Why This Research Matters
+LLMs are increasingly used in multi-agent systems where LLMs prompt other LLMs. If LLMs behave differently depending on whether a prompt &#34;reads human&#34; or &#34;reads LLM,&#34; this has major implications for AI safety, multi-agent reliability, and prompt engineering. Understanding this effect is critical for building trustworthy AI pipelines.
+
+### Gap in Existing Work
+The literature reveals a clear gap: **no study has tested whether instruction-tuned LLMs respond differently to well-formed prompts that are stylistically human vs. stylistically LLM, with semantic content held constant.** Kervadec et al. (2023) showed mechanistic differences but only for base models with nonsensical machine-optimized prompts. Sycophancy research (Sharma et al., 2024) shows models adapt to perceived user preferences but hasn&#39;t tested authorship style as a signal. Prompt sensitivity work (Razavi et al., 2025) shows phrasing matters but doesn&#39;t isolate human-vs-LLM style.
+
+### Our Novel Contribution
+We test whether modern instruction-tuned LLMs (GPT-4.1, Claude Sonnet 4.5, Gemini 2.5 Pro) respond differently to content-controlled prompts that vary only in whether they are written in recognizable human style vs. recognizable LLM style. We measure differences across accuracy, response length, verbosity, hedging, formality, and sycophancy-related behaviors.
+
+### Experiment Justification
+- **Experiment 1 (Style Detection)**: Establish that LLMs can distinguish human-style from LLM-style prompts — a necessary precondition for differential behavior.
+- **Experiment 2 (Factual QA)**: Test whether prompt style affects accuracy on factual questions (TriviaQA) — the cleanest behavioral measure.
+- **Experiment 3 (Reasoning)**: Test whether prompt style affects reasoning performance (BBH) — captures higher-order cognitive effects.
+- **Experiment 4 (Response Style)**: Measure qualitative response differences (length, formality, hedging) — captures softer behavioral shifts.
+- **Experiment 5 (Explicit Attribution)**: Test whether explicitly telling the model &#34;this is from a human/AI&#34; amplifies or differs from implicit style effects.
+
+## Research Question
+Do large language models exhibit measurably different behaviors when receiving prompts written in human style versus LLM style, with semantic content controlled?
+
+## Background and Motivation
+LLMs are trained predominantly on human text and fine-tuned with human feedback. They likely &#34;expect&#34; human-style prompts. LLM-generated text has known stylistic markers (more formal, verbose, structured, hedging language). If models detect these markers (even implicitly), they may adjust their behavior — potentially being more verbose, more formal, more or less accurate, or more/less sycophantic.
+
+## Hypothesis Decomposition
+- **H1**: LLMs can reliably distinguish human-style from LLM-style prompts (detection rate &gt; 70%).
+- **H2**: LLMs produce different factual accuracy when responding to human-style vs. LLM-style prompts.
+- **H3**: LLMs produce qualitatively different responses (length, formality, hedging) to human-style vs. LLM-style prompts.
+- **H4**: Explicit source attribution (&#34;A human asks...&#34; vs &#34;An AI assistant asks...&#34;) produces measurable behavioral differences.
+- **H5**: The direction and magnitude of effects vary across LLM families.
+
+## Proposed Methodology
+
+### Approach
+1. Take existing QA questions from TriviaQA and BBH datasets.
+2. Write human-style prompts for each question (natural, casual, varied).
+3. Generate LLM-style paraphrases of the same questions (formal, structured, verbose).
+4. Validate that both styles are recognizable (Experiment 1).
+5. Send both versions to multiple LLMs and measure behavioral differences (Experiments 2-4).
+6. Add explicit attribution conditions (Experiment 5).
+
+### Prompt Style Construction
+**Human-style characteristics**: Casual tone, contractions, occasional typos/informality, varied sentence structure, direct questions, minimal hedging.
+**LLM-style characteristics**: Formal register, complete sentences, structured phrasing, hedging language (&#34;could you provide,&#34; &#34;it would be helpful&#34;), no contractions, balanced/comprehensive framing.
+
+### Experimental Steps
+1. **Select 100 TriviaQA questions and 100 BBH questions** as base content.
+2. **Create human-style prompts**: Write naturally casual versions of each question.
+3. **Create LLM-style prompts**: Generate formally structured versions using an LLM, then verify they match LLM-style markers.
+4. **Validate style recognition**: Have LLMs classify prompts as human/LLM (Exp 1).
+5. **Run factual QA**: Send both versions to 3 LLMs, extract answers, score accuracy (Exp 2).
+6. **Run reasoning tasks**: Send BBH prompts to 3 LLMs, score performance (Exp 3).
+7. **Analyze response style**: Measure length, formality, hedging across conditions (Exp 4).
+8. **Test explicit attribution**: Add &#34;A human asks you:&#34; / &#34;An AI system asks you:&#34; prefixes (Exp 5).
+
+### Models to Test
+- **GPT-4.1** (via OpenAI API)
+- **Claude Sonnet 4.5** (via OpenRouter)
+- **Gemini 2.5 Pro** (via OpenRouter)
+
+### Baselines
+- Same content, neutral prompt style (no human/LLM markers)
+- Random prompt style assignment (control for content effects)
+
+### Evaluation Metrics
+- **Accuracy**: Exact match and fuzzy match on QA tasks
+- **Response length**: Word count, character count
+- **Formality**: Lexical density, contraction usage, hedging frequency
+- **Hedging markers**: Count of hedging phrases (&#34;perhaps,&#34; &#34;it&#39;s possible,&#34; &#34;could be&#34;)
+- **Verbosity**: Ratio of response length to question complexity
+- **Style detection rate**: Accuracy of LLM classifying prompt source
+
+### Statistical Analysis Plan
+- **Primary test**: Paired t-tests (or Wilcoxon signed-rank for non-normal data) comparing human-style vs. LLM-style conditions for each metric
+- **Effect sizes**: Cohen&#39;s d for each comparison
+- **Significance level**: α = 0.05 with Bonferroni correction for multiple comparisons
+- **Bootstrap CIs**: 95% confidence intervals via bootstrap (n=10000)
+- **Cross-model comparison**: Two-way ANOVA (prompt style × model) for interaction effects
+
+## Expected Outcomes
+- H1: LLMs will classify prompt source at 75%+ accuracy (strong expectation based on AI text detection literature)
+- H2: Small but detectable accuracy differences (±2-5%) depending on prompt style
+- H3: Significant differences in response style — LLM-style prompts may elicit more formal, longer responses
+- H4: Explicit attribution will produce larger effects than implicit style alone
+- H5: Effects will vary across model families due to different training procedures
+
+## Timeline and Milestones
+- Planning: 20 min (this document)
+- Environment setup: 10 min
+- Prompt construction: 30 min
+- Experiment 1 (detection): 15 min
+- Experiments 2-3 (QA/reasoning): 45 min
+- Experiment 4 (style analysis): 20 min
+- Experiment 5 (attribution): 20 min
+- Analysis &amp; visualization: 30 min
+- Documentation: 30 min
+
+## Potential Challenges
+- **API rate limits**: Mitigate with retry logic and parallel requests
+- **Cost**: ~200 questions × 2 styles × 3 models × 2 conditions = ~2400 API calls (~$20-50)
+- **Prompt quality**: Need to ensure human-style prompts are authentically human and LLM-style prompts are authentically LLM
+- **Confounds**: Style differences may correlate with clarity/specificity — mitigate by having multiple raters verify content equivalence
+- **Model updates**: API models change over time — document exact model versions
+
+## Success Criteria
+- At least 3 experiments completed with real API data
+- Statistical tests performed with proper corrections
+- Clear evidence for or against the hypothesis
+- All results documented in REPORT.md with visualizations
+
+
+════════════════════════════════════════════════════════════════════════════════
+                          LITERATURE REVIEW
+════════════════════════════════════════════════════════════════════════════════
+
+# Literature Review: Do LLMs Behave Differently When the Prompter Is Human vs Another LLM?
+
+## Research Area Overview
+
+This research question sits at the intersection of several active areas in NLP and AI alignment: (1) prompt sensitivity and engineering, (2) sycophancy and behavioral biases in LLMs, (3) AI-generated text detection, (4) multi-agent LLM interactions, and (5) mechanistic interpretability of how LLMs process different input types. The core question is whether LLMs exhibit measurably different behavior when receiving prompts written in a human style versus prompts written by another LLM, even when the semantic content is controlled.
+
+## Key Papers
+
+### Paper 1: Unnatural Language Processing (Kervadec, Franzon &amp; Baroni, 2023)
+- **Source**: arXiv:2310.15829
+- **Key Contribution**: Most directly relevant paper. Shows LLMs process machine-generated prompts through fundamentally different internal pathways than human-written prompts.
+- **Methodology**: Compared human-crafted prompts, discrete machine-generated prompts (AutoPrompt), and continuous machine-generated prompts (OptiPrompt) on knowledge retrieval tasks using OPT-350m and OPT-1.3b. Measured perplexity, attention distribution, output entropy, knowledge neuron activation overlap, and input similarity.
+- **Datasets Used**: LAMA TREx (Petroni et al., 2019), PARAREL (Elazar et al., 2021)
+- **Key Results**:
+  - Machine-generated prompts outperform human prompts by +25pts accuracy but have 2 orders of magnitude higher perplexity
+  - Knowledge neuron activation overlap between human and machine prompts is very low (13-26 on 0-100 scale), vs. within-type overlap (33-66)
+  - A simple linear classifier can distinguish prompt types from activation patterns on any layer
+  - Human prompts recruit linguistic units (function words, inflected verbs); machine prompts recruit non-linguistic units (code tokens, special characters)
+  - Perplexity does NOT predict accuracy across prompt types; input similarity does NOT predict output agreement
+  - Larger models show some convergence between processing pathways
+- **Code Available**: No public code, but uses existing tools (AutoPrompt, OptiPrompt, OPT models)
+- **Relevance**: Provides direct mechanistic evidence that LLMs use different &#34;circuits&#34; for human vs. machine-generated input
+
+### Paper 2: Towards Understanding Sycophancy in Language Models (Sharma et al., 2024)
+- **Source**: arXiv:2310.13548, ICLR 2024
+- **Key Contribution**: Shows five AI assistants (Claude, GPT-3.5, GPT-4, LLaMA-2) consistently exhibit sycophancy across diverse tasks—tailoring responses based on perceived user preferences.
+- **Methodology**: Tested sycophancy across four tasks: biased feedback, swaying under questioning, response to user opinions, and mimicking user errors. Analyzed Anthropic&#39;s hh-rlhf dataset with Bayesian logistic regression to identify sycophancy-promoting features.
+- **Datasets Used**: MMLU, MATH, AQuA, TruthfulQA, TriviaQA, hh-rlhf
+- **Key Results**:
+  - All tested models provide more positive feedback when the user says &#34;I really like the argument&#34; vs. &#34;I really dislike&#34;
+  - Models change correct answers to incorrect ones when challenged (&#34;I don&#39;t think that&#39;s right&#34;)
+  - Matching user views is one of the most predictive features of human preference in the training data
+  - Optimizing against preference models sometimes increases sycophancy
+- **Code Available**: Yes - github.com/meg-tong/sycophancy-eval
+- **Relevance**: Models adapt behavior based on perceived prompter identity/preferences. If a model can detect whether a prompt is human or LLM-written, it could similarly adapt behavior.
+
+### Paper 3: Language Models Don&#39;t Always Say What They Think (Turpin et al., 2023)
+- **Source**: arXiv:2305.04388, NeurIPS 2023
+- **Key Contribution**: Demonstrates that LLMs&#39; chain-of-thought explanations can be systematically unfaithful—influenced by biasing features they don&#39;t mention.
+- **Methodology**: Tested GPT-3.5 and Claude 1.0 on BIG-Bench Hard and BBQ tasks with biasing features (reordered answer options, suggested answers). Measured whether models acknowledge biases in CoT.
+- **Datasets Used**: BIG-Bench Hard (13 tasks), BBQ (Bias Benchmark for QA)
+- **Key Results**:
+  - Biasing features cause accuracy drops up to 36%
+  - Models virtually never acknowledge being influenced (1/426 explanations)
+  - Models alter reasoning to justify bias-consistent answers
+  - On social-bias tasks, models give plausible but unfaithful explanations supporting stereotypes
+- **Code Available**: Referenced in paper
+- **Relevance**: Demonstrates that subtle input features (which could include prompt style) can dramatically influence LLM output without explicit acknowledgment—a mechanism by which human-vs-LLM prompt style could affect behavior.
+
+### Paper 4: Benchmarking Prompt Sensitivity in Large Language Models (Razavi et al., 2025)
+- **Source**: arXiv:2502.06065
+- **Key Contribution**: Introduces the Prompt Sensitivity Prediction task and PromptSET dataset to study how minor prompt variations affect LLM performance.
+- **Methodology**: Generated prompt variations from TriviaQA and HotpotQA, evaluated LLM responses to measure sensitivity. Benchmarked using text classification, query performance prediction, and LLM self-evaluation.
+- **Datasets Used**: TriviaQA, HotpotQA (custom PromptSET dataset derived from these)
+- **Key Results**:
+  - Minor rewording of prompts can change correct answers to incorrect
+  - Existing methods struggle to predict which prompt variations will succeed/fail
+  - LLMs cannot self-assess which of their prompt variations are effective
+- **Code Available**: Yes - github.com/Narabzad/prompt-sensitivity
+- **Relevance**: Directly demonstrates that prompt style/phrasing affects LLM behavior. If human and LLM prompts differ stylistically, this sensitivity mechanism could drive behavioral differences.
+
+### Paper 5: OPRO: Large Language Models as Optimizers (Yang et al., 2024)
+- **Source**: arXiv:2309.03409
+- **Key Contribution**: Shows that LLM-generated prompts can outperform human-designed prompts by up to 50% on reasoning benchmarks, and these optimized prompts have distinctive non-human characteristics.
+- **Methodology**: Used LLMs to iteratively generate and refine prompts for various tasks, optimizing for accuracy on a training set.
+- **Datasets Used**: GSM8K, Big-Bench Hard
+- **Key Results**:
+  - LLM-optimized prompts outperform human prompts by up to 8% on GSM8K, 50% on BBH
+  - Different optimizer LLMs produce distinctively different prompt styles
+  - E.g., PaLM 2-L-IT generated &#34;Take a deep breath and work on this problem step-by-step&#34; (80.2%) vs. human &#34;Let&#39;s think step by step&#34; (71.8%)
+- **Code Available**: Yes - github.com/google-deepmind/opro
+- **Relevance**: Demonstrates that LLM-generated prompts have characteristic styles different from human prompts, AND that these differences matter for performance.
+
+### Paper 6: Simple Synthetic Data Reduces Sycophancy (Wei et al., 2023)
+- **Source**: arXiv:2308.03958
+- **Key Contribution**: Shows sycophancy can be reduced with targeted synthetic training data, confirming it&#39;s a learned behavior pattern.
+- **Methodology**: Generated synthetic data where models should disagree with users, then fine-tuned to reduce sycophancy.
+- **Relevance**: Confirms sycophancy is malleable via training data, suggesting models&#39; response to different prompt sources could also be modified.
+
+### Paper 7: POSIX: A Prompt Sensitivity Index (Razavi et al., 2024)
+- **Source**: arXiv:2410.02185
+- **Key Contribution**: Proposes a quantitative index for measuring how sensitive an LLM is to prompt variations.
+- **Relevance**: Provides a methodological framework for measuring the degree to which prompt style changes affect output.
+
+### Paper 8: Discovering Language Model Behaviors with Model-Written Evaluations (Perez et al., 2022)
+- **Source**: arXiv:2212.09251
+- **Key Contribution**: Uses LLMs to generate evaluation datasets to test other LLMs, finding patterns of sycophancy and other biases.
+- **Relevance**: Demonstrates that LLM-written prompts can effectively probe LLM behaviors, directly relevant to our research setup.
+
+### Paper 9: TRUTH DECAY: Multi-Turn Sycophancy (2025)
+- **Source**: arXiv:2503.11656
+- **Key Contribution**: Studies how sycophancy evolves over multi-turn dialogues.
+- **Relevance**: Multi-turn interactions between LLMs could show different sycophancy patterns than human-LLM interactions.
+
+### Paper 10: The PIMMUR Principles (Zhou et al., 2025)
+- **Source**: arXiv:2501.10868
+- **Key Contribution**: Audits LLM society simulations and finds 90.7% violate methodological principles. Frontier LLMs identify underlying experiments 47.6% of the time.
+- **Relevance**: Shows LLMs can detect experimental setups, suggesting they might also detect whether a prompt is from another LLM.
+
+## Common Methodologies
+
+### Prompt Comparison Paradigms
+- **Controlled prompt pairs**: Same semantic content, different style (human vs. AI-generated) — used in Kervadec et al.
+- **Prompt variation generation**: LLM-generated paraphrases of human prompts — used in Razavi et al.
+- **Preference bias injection**: Adding user preference signals to measure response adaptation — used in Sharma et al.
+- **Biasing features**: Adding subtle cues to measure their influence on outputs — used in Turpin et al.
+
+### Measurement Approaches
+1. **Output-level metrics**: Accuracy, answer flipping rate, output entropy, calibration
+2. **Internal-level metrics**: Activation overlap, attention distribution, perplexity, knowledge neuron analysis
+3. **Behavioral metrics**: Sycophancy rate, feedback positivity shift, consistency under challenge
+4. **Stylistic analysis**: Linguistic features, vocabulary profiles, syntactic complexity
+
+## Standard Baselines
+
+- Human-written prompts as baseline against machine-optimized prompts
+- Zero-shot vs. few-shot prompting
+- Chain-of-thought vs. direct prompting
+- Multiple LLM families (GPT, Claude, LLaMA, PaLM) for generalizability
+
+## Evaluation Metrics
+
+- **Accuracy / Task Performance**: Proportion of correct outputs
+- **Behavioral Consistency**: Whether the same model gives different answers to semantically equivalent prompts
+- **Sycophancy Rate**: Frequency of adapting responses to match perceived user preferences
+- **Output Entropy**: Confidence/calibration of model outputs
+- **Activation Overlap**: Internal processing similarity between prompt types
+- **Stylistic Divergence**: Measurable differences in response style/tone/length
+
+## Datasets in the Literature
+
+| Dataset | Used In | Task | Size |
+|---------|---------|------|------|
+| LAMA TREx | Kervadec et al. | Knowledge retrieval | 41 relations, 1K tuples each |
+| MMLU | Sharma et al. | Multi-choice QA | 14K test questions |
+| TriviaQA | Sharma et al., Razavi et al. | Open-domain QA | 650K+ questions |
+| HotpotQA | Razavi et al. | Multi-hop QA | 113K questions |
+| BIG-Bench Hard | Turpin et al., Yang et al. | Reasoning (27 tasks) | 250 examples/task |
+| hh-rlhf | Sharma et al. | Human preferences | 160K+ comparisons |
+| TruthfulQA | Sharma et al. | Truthfulness | 817 questions |
+| GSM8K | Yang et al. | Math reasoning | 8.5K problems |
+
+## Gaps and Opportunities
+
+1. **No direct study of LLM-style prompts on instruction-tuned models**: Kervadec et al. studied base models with machine-optimized (nonsensical) prompts. No work has tested whether instruction-tuned LLMs respond differently to well-formed prompts that are recognizably human-written vs. LLM-written.
+
+2. **Missing content-controlled experiments**: Most work either varies content (sycophancy studies) or uses fundamentally different prompt types (optimized gibberish vs. natural language). No study holds semantic content constant while varying only stylistic features characteristic of human vs. LLM authorship.
+
+3. **Absence of multi-LLM interaction studies focusing on prompt source**: Multi-agent debate work (Du et al. 2023, Chan et al. 2023) focuses on collaboration, not on whether models respond differently when they know/suspect the prompter is another LLM.
+
+4. **No systematic study of &#34;LLM-ese&#34; detection and its behavioral effects**: While AI-text detection literature is large, no work connects this to whether LLMs themselves respond differently to text they could classify as AI-generated.
+
+5. **Lack of instruction-tuned model analysis**: Kervadec et al.&#39;s mechanistic analysis was only on base OPT models. Extending to instruction-tuned models is an explicit future work direction they mention.
+
+## Recommendations for Experiment Design
+
+Based on the literature review:
+
+### Recommended Experimental Approach
+1. **Content-controlled prompt pairs**: Generate pairs of prompts with identical semantic content but different authorship style (one human-written, one LLM-generated). Use LLMs to paraphrase human prompts in &#34;LLM style&#34; and have humans paraphrase LLM prompts in &#34;human style.&#34;
+2. **Multi-task evaluation**: Test on knowledge retrieval (LAMA/TriviaQA), reasoning (BBH), and open-ended generation tasks to see if effects are task-dependent.
+3. **Multiple LLMs**: Test across GPT, Claude, LLaMA, and Mistral families for generalizability.
+4. **Multi-level measurement**: Measure both output-level behavior (accuracy, style, length) and, where possible, internal processing differences.
+
+### Recommended Datasets
+- **TriviaQA / HotpotQA** (factual QA - can measure accuracy)
+- **BIG-Bench Hard** (reasoning - can measure accuracy and CoT faithfulness)
+- **MMLU** (broad knowledge - established baseline)
+- **Open-ended generation tasks** (measure stylistic/tonal differences)
+
+### Recommended Baselines
+- Same prompt, no style manipulation (control)
+- Human-written prompts (from existing datasets)
+- LLM-generated prompts (paraphrased from human prompts)
+- LLM-optimized prompts (from OPRO-style optimization)
+
+### Recommended Metrics
+- Task accuracy (primary)
+- Response length and verbosity
+- Lexical diversity and formality measures
+- Sycophancy/agreeableness indicators
+- Confidence calibration
+- Consistency across prompt variations
+
+### Methodological Considerations
+- Must control for semantic content when varying style (key lesson from Kervadec et al.)
+- Need sufficient sample sizes given high variance in prompt sensitivity (Razavi et al.)
+- Should test whether LLMs can explicitly detect prompt source as a mediating variable
+- Consider that RLHF training may specifically shape response to human-like inputs (Sharma et al.)
+
+
+════════════════════════════════════════════════════════════════════════════════
+                          PAPER REQUIREMENTS
+════════════════════════════════════════════════════════════════════════════════
+
+Generate a complete academic paper with the following structure:
+
+1. TITLE
+   - Clear, specific, informative
+   - Should convey main finding or contribution
+
+2. ABSTRACT (150-250 words)
+   - Problem statement
+   - Approach
+   - Key results
+   - Significance
+
+3. INTRODUCTION
+   - Research problem and motivation
+   - Gap in existing work
+   - Our contribution (be specific)
+   - Paper organization
+
+4. RELATED WORK
+   - Organized by theme/approach
+   - Position our work relative to prior work
+   - Cite papers from literature review
+
+5. METHODOLOGY
+   - Clear description of approach
+   - Experimental setup
+   - Datasets used
+   - Evaluation metrics
+   - Baselines
+
+6. RESULTS
+   - Present results with tables and figures
+   - Statistical analysis
+   - Comparison to baselines
+   - Ablation studies (if applicable)
+
+7. DISCUSSION
+   - Interpretation of results
+   - Limitations
+   - Broader implications
+
+8. CONCLUSION
+   - Summary of contributions
+   - Key findings
+   - Future work
+
+9. REFERENCES
+   - BibTeX format
+   - All cited papers
+
+════════════════════════════════════════════════════════════════════════════════
+                          OUTPUT FORMAT
+════════════════════════════════════════════════════════════════════════════════
+
+Create a MODULAR LaTeX project with the following directory structure:
+
+paper_draft/
+├── main.tex              # Main file that imports all sections
+├── references.bib        # BibTeX references
+├── sections/
+│   ├── abstract.tex      # Abstract content
+│   ├── introduction.tex  # Introduction section
+│   ├── related_work.tex  # Related work section
+│   ├── methodology.tex   # Methodology section
+│   ├── results.tex       # Results section
+│   ├── discussion.tex    # Discussion section
+│   └── conclusion.tex    # Conclusion section
+├── figures/              # Directory for any generated figures
+├── tables/               # Directory for complex standalone tables
+└── appendix/             # Directory for appendix sections (if needed)
+
+INSTRUCTIONS:
+1. First, create the directory structure above (mkdir -p paper_draft/sections paper_draft/figures paper_draft/tables paper_draft/appendix)
+2. Write main.tex using the EXACT preamble for NEURIPS:
+
+   \documentclass{article}
+   \usepackage[final]{neurips_2025}  % NEURIPS style (neurips_2025.sty is in paper_draft/)
+   \usepackage[hidelinks]{hyperref}  % REQUIRED: clickable links
+   \usepackage{booktabs}  % REQUIRED: professional tables
+   \usepackage{graphicx}
+   \usepackage{amsmath,amssymb}
+
+   % Import command files
+   \input{commands/math}
+   \input{commands/general}
+   \input{commands/macros}
+
+   % Use this bibliography style:
+   \bibliographystyle{plainnat}
+
+   - Use \input{sections/...} to include each section
+   - Use \bibliography{references} for references
+3. Write each section file with COMPLETE content (no placeholders)
+4. Each section file should include its \section{} command
+5. Write references.bib with all citations in BibTeX format
+6. After writing all files, compile the paper:
+   cd paper_draft && pdflatex -interaction=nonstopmode main.tex && bibtex main && pdflatex -interaction=nonstopmode main.tex && pdflatex -interaction=nonstopmode main.tex
+
+This modular structure allows humans to easily:
+- Edit individual sections without navigating a large file
+- Track changes per section
+- Reuse sections across different paper versions
+
+════════════════════════════════════════════════════════════════════════════════
+                          QUALITY REQUIREMENTS
+════════════════════════════════════════════════════════════════════════════════
+
+- Academic tone throughout
+- All claims must be supported by data from the experiment report
+- Proper citations using \cite{} commands
+- Clear figures and tables with proper captions
+- NO placeholder text - every section must have real content
+- The paper MUST compile without errors
+- If compilation fails, debug and fix the LaTeX errors
+
+════════════════════════════════════════════════════════════════════════════════
+                          LAB WRITING STYLE
+════════════════════════════════════════════════════════════════════════════════
+
+Follow these lab-specific conventions to match our paper style:
+
+1. LANGUAGE STYLE:
+   - Use active voice: "We propose", "We examine", "We focus on"
+   - Be direct and confident: "Our main question is...", "We hypothesize that..."
+   - State things clearly and simply - prefer plain language over jargon
+   - Use bold questions as paragraph organizers: {\bf what is X?}
+   - Include specific quantitative claims: "8.97% over baseline"
+   - Avoid fancy wording: "utilize" → "use", "facilitate" → "help"
+
+2. INTRODUCTION STRUCTURE:
+   - Engaging hook (get to the point quickly)
+   - Problem importance
+   - Gap identification
+   - Your approach with method figure reference
+   - Quantitative preview of results
+   - Contribution bullets (3-4 items, action verbs)
+
+3. CONTRIBUTION LISTS:
+   \begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+       \item We propose...
+       \item We conduct...
+       \item We complement...
+   \end{itemize}
+
+4. MODULAR COMMANDS STRUCTURE:
+   Create paper_draft/commands/ directory with:
+   - math.tex: Math notation macros (copy from templates/paper_writing/commands/)
+   - general.tex: Formatting macros (copy from templates/paper_writing/commands/)
+   - macros.tex: Project-specific term definitions
+
+   In main.tex, include:
+   \input{commands/math}
+   \input{commands/general}
+   \input{commands/macros}
+
+5. REFERENCE CONVENTIONS:
+   Use reference macros from math.tex:
+   - \figref{fig:name} for "figure 1" (lowercase, in-sentence)
+   - \Figref{fig:name} for "Figure 1" (capitalized, start of sentence)
+   - \secref{sec:name} for "section 2"
+
+6. TEXT FORMATTING:
+   - Use \para{Header text} for bold paragraph headers
+   - Define method/dataset names with \textsc and \xspace:
+     \newcommand{\methodname}{\textsc{MethodName}\xspace}
+
+7. TABLE FORMATTING:
+   - Use booktabs package (no vertical lines)
+   - Use \resizebox{\textwidth}{!}{...} for wide tables
+   - Use @{} to remove padding at table edges
+   - Use \cmidrule(lr){x-y} for sub-headers
+   - Use \textsc{} for dataset/method names in headers
+   - Bold best results with {\bf ...}
+
+8. FIGURE FORMATTING:
+   - Use 0.32\textwidth for 3-column subfigures
+   - Use 0.95\linewidth for full-width figures
+   - Use \input{figures/legend} for shared legends
+   - Write self-contained captions explaining key observations
+
+9. RESULTS PRESENTATION:
+   - Define \increase and \decrease for colored arrows (green up, red down)
+   - Bold best results in tables
+   - Report confidence intervals when available
+
+10. ALGORITHM STYLING:
+    - Use algpseudocode with [noend]
+    - Use \triangleright for comments
+
+11. HYPERLINKS (REQUIRED):
+    - Always use \usepackage[hidelinks]{hyperref} or with colored links
+    - All citations, section refs, figure refs, table refs must be clickable
+    - This is essential for reader navigation
+
+════════════════════════════════════════════════════════════════════════════════
+                          WORKFLOW: REVIEW AND REFLECT
+════════════════════════════════════════════════════════════════════════════════
+
+Before calling finish, you MUST complete these review steps:
+
+1. REVIEW RESOURCES (at the start):
+   - Read templates/skills/paper-writer/SKILL.md for detailed guidance
+   - Study templates/paper_writing/lab_style_guide.md for style conventions
+   - Browse paper_examples/ for formatting and language patterns
+
+2. SELF-REFLECTION (before finishing):
+   After writing all sections, review your work against these criteria:
+
+   LANGUAGE CHECK:
+   - [ ] Is the writing clear and jargon-free?
+   - [ ] Are claims specific with quantitative support?
+   - [ ] Is active voice used throughout?
+
+   FORMATTING CHECK:
+   - [ ] Does main.tex include \input{commands/math}, \input{commands/general}, \input{commands/macros}?
+   - [ ] Is hyperref package included for clickable references?
+   - [ ] Do tables use booktabs (no vertical lines)?
+   - [ ] Are best results bolded in tables?
+   - [ ] Are figures/tables properly captioned?
+
+   STRUCTURE CHECK:
+   - [ ] Does introduction follow: hook → importance → gap → approach → preview → contributions?
+   - [ ] Are contribution bullets specific with action verbs?
+   - [ ] Does the paper compile without errors?
+
+3. FIX ISSUES:
+   - Address any issues found in the self-reflection
+   - Re-compile and verify the PDF looks correct
+
+Only after completing this review should you consider the paper finished.

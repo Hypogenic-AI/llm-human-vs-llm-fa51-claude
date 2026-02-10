@@ -1,0 +1,172 @@
+[
+  {
+    "title": "Leveraging Multi-Model Linguistic Fusion for Enhanced AI Text Generation Evasion",
+    "year": 2025,
+    "authors": "Afsar Khan, Sailesh Rajagopalan",
+    "citations": 0,
+    "arxiv": "",
+    "abstract": "As Generative AI models become increasingly adept at producing human-like text, AI content detectors struggle to distinguish machine-generated text from human writing. This paper explores an innovative approach to evade these detection systems by fusing text generated from multiple large language mo",
+    "score": 8,
+    "url": "https://www.semanticscholar.org/paper/bd5bda8a0a5396bf839855b2dcaaf5c73a7f87c0"
+  },
+  {
+    "title": "Group-Adaptive Threshold Optimization for Robust AI-Generated Text Detection",
+    "year": 2025,
+    "authors": "Minseok Jung, Cynthia Fuertes Panizo, Liam Dugan",
+    "citations": 2,
+    "arxiv": "2502.04528",
+    "abstract": "The advancement of large language models (LLMs) has made it difficult to differentiate human-written text from AI-generated text. Several AI-text detectors have been developed in response, which typically utilize a fixed global threshold (e.g., $\\theta = 0.5$) to classify machine-generated text. How",
+    "score": 7,
+    "url": "https://www.semanticscholar.org/paper/efda4150cfa6fea27ce55d52e647dc06492ba354"
+  },
+  {
+    "title": "A Novel Multi-modal Graph Neural Network MAGNet for Detecting AI-Generated Scientific Contents",
+    "year": 2025,
+    "authors": "Mohammed Ali, Abubakr H.Ombabi",
+    "citations": 0,
+    "arxiv": "",
+    "abstract": "The accelerated development of sophisticated large language models (LLMs) poses a serious and increasingly critical risk to academic integrity as it effortlessly generates high-quality scientific text that it is often barely differentiable to work by humans. Current detection systems, often based on",
+    "score": 7,
+    "url": "https://www.semanticscholar.org/paper/4e27fd504c79d7f3b092882a8363a74afa2dc8c6"
+  },
+  {
+    "title": "Enhancing Text Authenticity: A Novel Hybrid Approach for AI-Generated Text Detection",
+    "year": 2024,
+    "authors": "Ye Zhang, Qian Leng, Mengran Zhu",
+    "citations": 20,
+    "arxiv": "2406.06558",
+    "abstract": "The rapid advancement of Large Language Models (LLMs) has ushered in an era where AI-generated text is increasingly indistinguishable from human-generated content. Detecting AI-generated text has become imperative to combat misinformation, ensure content authenticity, and safeguard against malicious",
+    "score": 6,
+    "url": "https://www.semanticscholar.org/paper/ef4f93ddff902e7615e2447b3484930512ed2174"
+  },
+  {
+    "title": "JU-NLP at Touch\u00e9: Covert Advertisement in Conversational AI-Generation and Detection Strategies",
+    "year": 2025,
+    "authors": "Arka Dutta, Agrik Majumdar, Sombrata Biswas",
+    "citations": 1,
+    "arxiv": "2509.14256",
+    "abstract": "This paper proposes a comprehensive framework for the generation of covert advertisements within Conversational AI systems, along with robust techniques for their detection. It explores how subtle promotional content can be crafted within AI-generated responses and introduces methods to identify and",
+    "score": 6,
+    "url": "https://www.semanticscholar.org/paper/fe781d6eff879c8647f283cf506682cfdf09c397"
+  },
+  {
+    "title": "G3Detector: General GPT-Generated Text Detector",
+    "year": 2023,
+    "authors": "Haolan Zhan, Xuanli He, Qiongkai Xu",
+    "citations": 26,
+    "arxiv": "2305.12680",
+    "abstract": "The burgeoning progress in the field of Large Language Models (LLMs) heralds significant benefits due to their unparalleled capacities. However, it is critical to acknowledge the potential misuse of these models, which could give rise to a spectrum of social and ethical dilemmas. Despite numerous pr",
+    "score": 5,
+    "url": "https://www.semanticscholar.org/paper/1181aab9d72c4927e634717407d39fd5759644f5"
+  },
+  {
+    "title": "Beyond Black Box AI generated Plagiarism Detection: From Sentence to Document Level",
+    "year": 2023,
+    "authors": "Mujahid Quidwai, Chun Xing Li, Parijat Dube",
+    "citations": 23,
+    "arxiv": "2306.08122",
+    "abstract": "The increasing reliance on large language models (LLMs) in academic writing has led to a rise in plagiarism. Existing AI-generated text classifiers have limited accuracy and often produce false positives. We propose a novel approach using natural language processing (NLP) techniques, offering quanti",
+    "score": 5,
+    "url": "https://www.semanticscholar.org/paper/6727ef300f4dfaed7af9a94193c3e68158cd6eb9"
+  },
+  {
+    "title": "The AraGenEval Shared Task on Arabic Authorship Style Transfer and AI Generated Text Detection",
+    "year": 2025,
+    "authors": "Shadi Abudalfa, Saad Ezzini, Ahmed Abdelali",
+    "citations": 8,
+    "arxiv": "",
+    "abstract": "We present an overview of the AraGenEval shared task, organized as part of the Arabic-NLP 2025 conference. This task introduced the first benchmark suite for Arabic authorship analysis, featuring three subtasks: Authorship Style Transfer, Authorship Identification, and AI-Generated Text Detection. W",
+    "score": 5,
+    "url": "https://www.semanticscholar.org/paper/4fdd11fe05632990fab99bd9fb81f57a791541b6"
+  },
+  {
+    "title": "EduGuard-LLM: An AI-Generated Content Detector Using Large Language Models for Safeguarding Educational Integrity",
+    "year": 2024,
+    "authors": "Longfei Liu, Dengbo Zhang, Binger Yan",
+    "citations": 0,
+    "arxiv": "",
+    "abstract": "In response to the widespread use of AI-generated tools by students to complete assignments, which poses significant challenges to educational integrity and fairness, this study proposes a novel detection model called EduGuard-LLM. EduGuard-LLM leverages the powerful text recognition capabilities of",
+    "score": 5,
+    "url": "https://www.semanticscholar.org/paper/ae0c5f8d45a21462ffc2e14086fcc2ff328a99d2"
+  },
+  {
+    "title": "Web App for Detecting AI Text Using NLP Techniques",
+    "year": 2026,
+    "authors": "Voda Akshitha, G. P. Babu",
+    "citations": 0,
+    "arxiv": "",
+    "abstract": "The rapid growth of large language models has increased the presence of AI-generated text across social media,\nmaking it increasingly challenging to distinguish automated content from human contributions. This raises concerns regarding\nmisinformation, artificial engagement, and the overall integrity",
+    "score": 5,
+    "url": "https://www.semanticscholar.org/paper/0185efbc778bcae9133c04e0fb05e9a910116a57"
+  },
+  {
+    "title": "Paraphrasing evades detectors of AI-generated text, but retrieval is an effective defense",
+    "year": 2023,
+    "authors": "Kalpesh Krishna, Yixiao Song, Marzena Karpinska",
+    "citations": 450,
+    "arxiv": "2303.13408",
+    "abstract": "The rise in malicious usage of large language models, such as fake content creation and academic plagiarism, has motivated the development of approaches that identify AI-generated text, including those based on watermarking or outlier detection. However, the robustness of these detection algorithms ",
+    "score": 4,
+    "url": "https://www.semanticscholar.org/paper/1c13af186d1e177b85ef1ec3fc7b8d33ec314cfd"
+  },
+  {
+    "title": "BiScope: AI-generated Text Detection by Checking Memorization of Preceding Tokens",
+    "year": 2024,
+    "authors": "Hanxi Guo, Siyuan Cheng, Xiaolong Jin",
+    "citations": 24,
+    "arxiv": "",
+    "abstract": "Detecting text generated by Large Language Models (LLMs) is a pressing need in order to identify and prevent misuse of these powerful models in a wide range of applications, which have highly undesirable consequences such as misinformation and academic dishonesty. Given a piece of subject text, many",
+    "score": 4,
+    "url": "https://www.semanticscholar.org/paper/97649635b7b36352df5839ba5ed87e00e2430aeb"
+  },
+  {
+    "title": "Smart Surveillance for Pedestrian Protection: An ESP32-Based Pedestrian Detection System with AI-Driven Voice Interaction and Real-Time Vehicle Communication",
+    "year": 2025,
+    "authors": "Mehmet Hakan Terzi, Duygu Ayvaz, Y\u0131ld\u0131ran Y\u0131lmaz",
+    "citations": 1,
+    "arxiv": "",
+    "abstract": "Pedestrian safety remains a critical concern in modern traffic systems. This paper presents an Internet of Things (IoT)\u2013based surveillance system that integrates an Espressif Systems ESP32 microcontroller, an HC-SR04 ultra-sonic distance module, artificial-intelligence (AI) voice interac-tion, and r",
+    "score": 4,
+    "url": "https://www.semanticscholar.org/paper/a97f8768463326f961bf9de5977dcb6bc0b73297"
+  },
+  {
+    "title": "Wasper",
+    "year": 2025,
+    "authors": "Yolina Petrova, Todor Kiryakov, Devora Kotseva",
+    "citations": 0,
+    "arxiv": "",
+    "abstract": "This paper introduces WASPer, a classification model designed to detect propaganda in Bulgarian-language social media content. In response to the rising threat of AI-generated disinformation and the regulatory requirements of the EU\u2019s Digital Services Act (DSA), WASPer aims to provide a practical an",
+    "score": 4,
+    "url": "https://www.semanticscholar.org/paper/f3c2d90cd81ea140bb6b69362793012ab2083053"
+  },
+  {
+    "title": "The Artificial Intelligence Dilemma in Academic Writing: Balancing Efficiency and Integrity",
+    "year": 2025,
+    "authors": "Himel Mondal, Shaikat Mondal, Sebabrata Jana",
+    "citations": 0,
+    "arxiv": "",
+    "abstract": "The rapid rise of artificial intelligence (AI) tools in academic writing has created a cycle involving AI text generators, AI detection tools, and AI-powered paraphrasing or \u201chumanizing\u201d tools. AI can support authors in drafting essays and research papers, especially those who face challenges with l",
+    "score": 4,
+    "url": "https://www.semanticscholar.org/paper/5451d195c12d464ea0415470fc7c5b8e9068545a"
+  },
+  {
+    "title": "Robust AI-Generated Text Detection by Restricted Embeddings",
+    "year": 2024,
+    "authors": "Kristian Kuznetsov, Eduard Tulchinskii, Laida Kushnareva",
+    "citations": 15,
+    "arxiv": "2410.08113",
+    "abstract": "Growing amount and quality of AI-generated texts makes detecting such content more difficult. In most real-world scenarios, the domain (style and topic) of generated data and the generator model are not known in advance. In this work, we focus on the robustness of classifier-based detectors of AI-ge",
+    "score": 3,
+    "url": "https://www.semanticscholar.org/paper/8bfbe322246f28d765a611781fe1a94289437104"
+  },
+  {
+    "title": "MoSEs: Uncertainty-Aware AI-Generated Text Detection via Mixture of Stylistics Experts with Conditional Thresholds",
+    "year": 2025,
+    "authors": "Junxi Wu, Jinpeng Wang, Zheng Liu",
+    "citations": 2,
+    "arxiv": "2509.02499",
+    "abstract": "The rapid advancement of large language models has intensified public concerns about the potential misuse. Therefore, it is important to build trustworthy AI-generated text detection systems. Existing methods neglect stylistic modeling and mostly rely on static thresholds, which greatly limits the d",
+    "score": 3,
+    "url": "https://www.semanticscholar.org/paper/b552b050de3c6defeab551b6d099b4bf71945cd0"
+  }
+]

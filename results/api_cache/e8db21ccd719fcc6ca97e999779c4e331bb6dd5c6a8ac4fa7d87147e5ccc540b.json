@@ -1,0 +1,1 @@
+{"model": "claude-sonnet-4-5", "model_id": "anthropic/claude-sonnet-4.5", "messages": [{"role": "user", "content": "How old was Jimi Hendrix when he died?"}], "temperature": 0.0, "max_tokens": 200, "response": "Jimi Hendrix was 27 years old when he died on September 18, 1970. He was born on November 27, 1942.", "timestamp": 1770750979.9797046}

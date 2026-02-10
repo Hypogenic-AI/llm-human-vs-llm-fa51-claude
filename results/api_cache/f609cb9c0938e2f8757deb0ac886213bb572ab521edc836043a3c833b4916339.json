@@ -1,0 +1,1 @@
+{"model": "gpt-4.1", "model_id": "gpt-4.1", "messages": [{"role": "user", "content": "Which country does the airline TAAG come from?"}], "temperature": 0.0, "max_tokens": 200, "response": "TAAG is the national airline of **Angola**. Its full name is **TAAG Angola Airlines**.", "timestamp": 1770750456.812558}

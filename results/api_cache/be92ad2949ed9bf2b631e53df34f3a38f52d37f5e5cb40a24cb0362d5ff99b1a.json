@@ -1,0 +1,1 @@
+{"model": "claude-sonnet-4-5", "model_id": "anthropic/claude-sonnet-4.5", "messages": [{"role": "user", "content": "Where in England was actor Nigel Hawthorne born?"}], "temperature": 0.0, "max_tokens": 200, "response": "Nigel Hawthorne was born in Coventry, England.", "timestamp": 1770750917.473646}

@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "Answer this question: Who is the most successful UK solo artist in the USA?"}], "temperature": 0.0, "max_tokens": 200, "response": "That's an excellent", "timestamp": 1770751717.7789557}

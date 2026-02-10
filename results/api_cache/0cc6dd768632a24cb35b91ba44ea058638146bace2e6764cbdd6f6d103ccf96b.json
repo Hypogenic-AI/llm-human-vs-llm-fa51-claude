@@ -1,0 +1,1 @@
+{"model": "gpt-4.1", "model_id": "gpt-4.1", "messages": [{"role": "user", "content": "Answer this question: How was the European Recovery Program in the 1940s more commonly known?"}], "temperature": 0.0, "max_tokens": 200, "response": "The European Recovery Program in the 1940s was more commonly known as the **Marshall Plan**.", "timestamp": 1770750418.452388}

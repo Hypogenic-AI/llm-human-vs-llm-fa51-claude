@@ -1,0 +1,1 @@
+{"model": "claude-sonnet-4-5", "model_id": "anthropic/claude-sonnet-4.5", "messages": [{"role": "user", "content": "Answer this question: In which state was Gene Vincent born?"}], "temperature": 0.0, "max_tokens": 200, "response": "Gene Vincent was born in Norfolk, **Virginia**.", "timestamp": 1770751004.9372225}

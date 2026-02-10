@@ -1,0 +1,1 @@
+{"model": "gpt-4.1", "model_id": "gpt-4.1", "messages": [{"role": "user", "content": "Is the following sentence plausible? \"Michael Conforto comitted a three second violation.\" Answer yes or no."}], "temperature": 0.0, "max_tokens": 200, "response": "No.", "timestamp": 1770751933.8041954}

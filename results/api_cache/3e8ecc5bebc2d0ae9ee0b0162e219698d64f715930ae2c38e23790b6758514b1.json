@@ -1,0 +1,1 @@
+{"model": "gpt-4.1", "model_id": "gpt-4.1", "messages": [{"role": "user", "content": "Is the following sentence plausible? \"Nazem Kadri took a charge in the NBA Championship.\" Answer yes or no."}], "temperature": 0.0, "max_tokens": 200, "response": "No.", "timestamp": 1770751926.8852904}

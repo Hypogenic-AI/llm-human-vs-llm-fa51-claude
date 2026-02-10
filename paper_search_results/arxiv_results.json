@@ -1,0 +1,142 @@
+[
+  {
+    "title": "Benchmarking Prompt Sensitivity in Large Language Models",
+    "authors": "Amirhossein Razavi, Mina Soltangheis, Negar Arabzadeh",
+    "year": 2025,
+    "arxiv_id": "2502.06065",
+    "abstract": "Large language Models (LLMs) are highly sensitive to variations in prompt formulation, which can significantly impact their ability to generate accurate responses. In this paper, we introduce a new task, Prompt Sensitivity Prediction, and a dataset PromptSET designed to investigate the effects of slight prompt variations on LLM performance. Using TriviaQA and HotpotQA datasets as the foundation of our work, we generate prompt variations and evaluate their effectiveness across multiple LLMs. We b",
+    "url": "http://arxiv.org/abs/2502.06065v1",
+    "pdf": "https://arxiv.org/pdf/2502.06065v1",
+    "score": 11
+  },
+  {
+    "title": "Unnatural language processing: How do language models handle machine-generated prompts?",
+    "authors": "Corentin Kervadec, Francesca Franzon, Marco Baroni",
+    "year": 2023,
+    "arxiv_id": "2310.15829",
+    "abstract": "Language model prompt optimization research has shown that semantically and grammatically well-formed manually crafted prompts are routinely outperformed by automatically generated token sequences with no apparent meaning or syntactic structure, including sequences of vectors from a model's embedding space. We use machine-generated prompts to probe how models respond to input that is not composed of natural language expressions. We study the behavior of models of different sizes in multiple sema",
+    "url": "http://arxiv.org/abs/2310.15829v1",
+    "pdf": "https://arxiv.org/pdf/2310.15829v1",
+    "score": 10
+  },
+  {
+    "title": "POSIX: A Prompt Sensitivity Index For Large Language Models",
+    "authors": "Anwoy Chatterjee, H S V N S Kowndinya Renduchintala, Sumit Bhatia",
+    "year": 2024,
+    "arxiv_id": "2410.02185",
+    "abstract": "Despite their remarkable capabilities, Large Language Models (LLMs) are found to be surprisingly sensitive to minor variations in prompts, often generating significantly divergent outputs in response to minor variations in the prompts, such as spelling errors, alteration of wording or the prompt template. However, while assessing the quality of an LLM, the focus often tends to be solely on its performance on downstream tasks, while very little to no attention is paid to prompt sensitivity. To fi",
+    "url": "http://arxiv.org/abs/2410.02185v2",
+    "pdf": "https://arxiv.org/pdf/2410.02185v2",
+    "score": 7
+  },
+  {
+    "title": "Accounting for Sycophancy in Language Model Uncertainty Estimation",
+    "authors": "Anthony Sicilia, Mert Inan, Malihe Alikhani",
+    "year": 2024,
+    "arxiv_id": "2410.14746",
+    "abstract": "Effective human-machine collaboration requires machine learning models to externalize uncertainty, so users can reflect and intervene when necessary. For language models, these representations of uncertainty may be impacted by sycophancy bias: proclivity to agree with users, even if they are wrong. For instance, models may be over-confident in (incorrect) problem solutions suggested by a user. We study the relationship between sycophancy and uncertainty estimation for the first time. We propose ",
+    "url": "http://arxiv.org/abs/2410.14746v1",
+    "pdf": "https://arxiv.org/pdf/2410.14746v1",
+    "score": 6
+  },
+  {
+    "title": "Simple synthetic data reduces sycophancy in large language models",
+    "authors": "Jerry Wei, Da Huang, Yifeng Lu",
+    "year": 2023,
+    "arxiv_id": "2308.03958",
+    "abstract": "Sycophancy is an undesirable behavior where models tailor their responses to follow a human user's view even when that view is not objectively correct (e.g., adapting liberal views once a user reveals that they are liberal). In this paper, we study the prevalence of sycophancy in language models and propose a simple synthetic-data intervention to reduce this behavior.\n  First, on a set of three sycophancy tasks (Perez et al., 2022) where models are asked for an opinion on statements with no corr",
+    "url": "http://arxiv.org/abs/2308.03958v2",
+    "pdf": "https://arxiv.org/pdf/2308.03958v2",
+    "score": 6
+  },
+  {
+    "title": "TRUTH DECAY: Quantifying Multi-Turn Sycophancy in Language Models",
+    "authors": "Joshua Liu, Aarav Jain, Soham Takuri",
+    "year": 2025,
+    "arxiv_id": "2503.11656",
+    "abstract": "Rapid improvements in large language models have unveiled a critical challenge in human-AI interaction: sycophancy. In this context, sycophancy refers to the tendency of models to excessively agree with or flatter users, often at the expense of factual accuracy. While previous studies have primarily analyzed this behavior in single-turn interactions, its persistence and evolution in multi-step conversations remain largely unexplored. We introduce TRUTH DECAY, a benchmark specifically designed to",
+    "url": "http://arxiv.org/abs/2503.11656v1",
+    "pdf": "https://arxiv.org/pdf/2503.11656v1",
+    "score": 6
+  },
+  {
+    "title": "Not Your Typical Sycophant: The Elusive Nature of Sycophancy in Large Language Models",
+    "authors": "Shahar Ben Natan, Oren Tsur",
+    "year": 2026,
+    "arxiv_id": "2601.15436",
+    "abstract": "We propose a novel way to evaluate sycophancy of LLMs in a direct and neutral way, mitigating various forms of uncontrolled bias, noise, or manipulative language, deliberately injected to prompts in prior works. A key novelty in our approach is the use of LLM-as-a-judge, evaluation of sycophancy as a zero-sum game in a bet setting. Under this framework, sycophancy serves one individual (the user) while explicitly incurring cost on another. Comparing four leading models - Gemini 2.5 Pro, ChatGpt ",
+    "url": "http://arxiv.org/abs/2601.15436v2",
+    "pdf": "https://arxiv.org/pdf/2601.15436v2",
+    "score": 6
+  },
+  {
+    "title": "Sycophancy in Vision-Language Models: A Systematic Analysis and an Inference-Time Mitigation Framework",
+    "authors": "Yunpu Zhao, Rui Zhang, Junbin Xiao",
+    "year": 2024,
+    "arxiv_id": "2408.11261",
+    "abstract": "Large Vision-Language Models (LVLMs) have shown significant capability in vision-language understanding. However, one critical issue that persists in these models is sycophancy, where models are unduly influenced by leading or deceptive prompts, resulting in biased outputs and hallucinations. Despite the rapid development of LVLMs, evaluating and mitigating sycophancy remains largely under-explored. In this work, we fill this gap by systematically analyzing sycophancy across multiple vision-lang",
+    "url": "http://arxiv.org/abs/2408.11261v2",
+    "pdf": "https://arxiv.org/pdf/2408.11261v2",
+    "score": 6
+  },
+  {
+    "title": "From Yes-Men to Truth-Tellers: Addressing Sycophancy in Large Language Models with Pinpoint Tuning",
+    "authors": "Wei Chen, Zhen Huang, Liang Xie",
+    "year": 2024,
+    "arxiv_id": "2409.01658",
+    "abstract": "Large Language Models (LLMs) tend to prioritize adherence to user prompts over providing veracious responses, leading to the sycophancy issue. When challenged by users, LLMs tend to admit mistakes and provide inaccurate responses even if they initially provided the correct answer. Recent works propose to employ supervised fine-tuning (SFT) to mitigate the sycophancy issue, while it typically leads to the degeneration of LLMs' general capability. To address the challenge, we propose a novel super",
+    "url": "http://arxiv.org/abs/2409.01658v3",
+    "pdf": "https://arxiv.org/pdf/2409.01658v3",
+    "score": 5
+  },
+  {
+    "title": "Sycophancy in Large Language Models: Causes and Mitigations",
+    "authors": "Lars Malmqvist",
+    "year": 2024,
+    "arxiv_id": "2411.15287",
+    "abstract": "Large language models (LLMs) have demonstrated remarkable capabilities across a wide range of natural language processing tasks. However, their tendency to exhibit sycophantic behavior - excessively agreeing with or flattering users - poses significant risks to their reliability and ethical deployment. This paper provides a technical survey of sycophancy in LLMs, analyzing its causes, impacts, and potential mitigation strategies. We review recent work on measuring and quantifying sycophantic ten",
+    "url": "http://arxiv.org/abs/2411.15287v1",
+    "pdf": "https://arxiv.org/pdf/2411.15287v1",
+    "score": 5
+  },
+  {
+    "title": "Sycophancy Claims about Language Models: The Missing Human-in-the-Loop",
+    "authors": "Jan Batzner, Volker Stocker, Stefan Schmid",
+    "year": 2025,
+    "arxiv_id": "2512.00656",
+    "abstract": "Sycophantic response patterns in Large Language Models (LLMs) have been increasingly claimed in the literature. We review methodological challenges in measuring LLM sycophancy and identify five core operationalizations. Despite sycophancy being inherently human-centric, current research does not evaluate human perception. Our analysis highlights the difficulties in distinguishing sycophantic responses from related concepts in AI alignment and offers actionable recommendations for future research",
+    "url": "http://arxiv.org/abs/2512.00656v1",
+    "pdf": "https://arxiv.org/pdf/2512.00656v1",
+    "score": 5
+  },
+  {
+    "title": "When Truth Is Overridden: Uncovering the Internal Origins of Sycophancy in Large Language Models",
+    "authors": "Keyu Wang, Jin Li, Shu Yang",
+    "year": 2025,
+    "arxiv_id": "2508.02087",
+    "abstract": "Large Language Models (LLMs) often exhibit sycophantic behavior, agreeing with user-stated opinions even when those contradict factual knowledge. While prior work has documented this tendency, the internal mechanisms that enable such behavior remain poorly understood. In this paper, we provide a mechanistic account of how sycophancy arises within LLMs. We first systematically study how user opinions induce sycophancy across different model families. We find that simple opinion statements reliabl",
+    "url": "http://arxiv.org/abs/2508.02087v4",
+    "pdf": "https://arxiv.org/pdf/2508.02087v4",
+    "score": 5
+  },
+  {
+    "title": "Measuring Sycophancy of Language Models in Multi-turn Dialogues",
+    "authors": "Jiseung Hong, Grace Byun, Seungone Kim",
+    "year": 2025,
+    "arxiv_id": "2505.23840",
+    "abstract": "Large Language Models (LLMs) are expected to provide helpful and harmless responses, yet they often exhibit sycophancy--conforming to user beliefs regardless of factual accuracy or ethical soundness. Prior research on sycophancy has primarily focused on single-turn factual correctness, overlooking the dynamics of real-world interactions. In this work, we introduce SYCON Bench, a novel benchmark for evaluating sycophantic behavior in multi-turn, free-form conversational settings. Our benchmark me",
+    "url": "http://arxiv.org/abs/2505.23840v3",
+    "pdf": "https://arxiv.org/pdf/2505.23840v3",
+    "score": 5
+  },
+  {
+    "title": "Extending Beacon to Hindi: Cultural Adaptation Drives Cross-Lingual Sycophancy",
+    "authors": "Sarthak Sattigeri",
+    "year": 2026,
+    "arxiv_id": "2602.00046",
+    "abstract": "Sycophancy, the tendency of language models to prioritize agreement with user preferences over principled reasoning, has been identified as a persistent alignment failure in English-language evaluations. However, it remains unclear whether such diagnostics generalize across languages and cultural contexts. We extend the Beacon single-turn forced-choice sycophancy diagnostic to Hindi through a controlled three-condition design: English original, Hindi literal translation, and Hindi culturally ada",
+    "url": "http://arxiv.org/abs/2602.00046v1",
+    "pdf": "https://arxiv.org/pdf/2602.00046v1",
+    "score": 4
+  }
+]

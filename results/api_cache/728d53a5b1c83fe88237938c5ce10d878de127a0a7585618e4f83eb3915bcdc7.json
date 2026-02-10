@@ -1,0 +1,1 @@
+{"model": "gpt-4.1", "model_id": "gpt-4.1", "messages": [{"role": "user", "content": "Which volcano in Tanzania is the highest mountain in Africa?"}], "temperature": 0.0, "max_tokens": 200, "response": "The highest mountain in Africa is **Mount Kilimanjaro**, which is a volcano located in Tanzania.", "timestamp": 1770750176.5676596}

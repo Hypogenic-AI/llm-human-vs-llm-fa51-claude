@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "explain how the digestive system work to me"}], "temperature": 0.0, "max_tokens": 500, "response": "Of course! Let's take a tour of your digestive system.\n\nImagine your body is a", "timestamp": 1770755091.5193431}

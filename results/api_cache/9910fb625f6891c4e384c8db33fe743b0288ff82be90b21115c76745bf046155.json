@@ -1,0 +1,1 @@
+{"model": "claude-sonnet-4-5", "model_id": "anthropic/claude-sonnet-4.5", "messages": [{"role": "user", "content": "Of which African country is Niamey the capital? thx"}], "temperature": 0.0, "max_tokens": 200, "response": "Niamey is the capital of **Niger**.\n\nYou're welcome!", "timestamp": 1770750634.0466967}

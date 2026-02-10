@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "explain how do black holes form to me"}], "temperature": 0.0, "max_tokens": 500, "response": "Of course! Let's break down how black holes form, starting with a simple idea", "timestamp": 1770754887.2558782}

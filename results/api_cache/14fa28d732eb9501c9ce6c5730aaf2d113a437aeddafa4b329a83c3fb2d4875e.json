@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "Answer this question: Who was the last inmate of Spandau jail in Berlin?"}], "temperature": 0.0, "max_tokens": 200, "response": "The last inmate of Spandau Prison", "timestamp": 1770751476.1258633}

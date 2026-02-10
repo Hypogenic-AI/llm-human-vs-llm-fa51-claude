@@ -1,0 +1,42 @@
+\section{Introduction}
+\label{sec:introduction}
+
+Large language models are increasingly talking to each other.
+In multi-agent systems, retrieval-augmented pipelines, and automated evaluation frameworks, LLMs routinely generate prompts that are consumed by other LLMs~\citep{du2023debate,chan2023chateval}.
+Yet virtually all research on LLM behavior assumes a human prompter.
+This raises a simple but important question: \textbf{do LLMs behave differently when the prompter is a human versus another LLM?}
+
+We know that LLM-generated text has distinctive stylistic signatures---it tends to be more formal, more verbose, and more structured than human-written text~\citep{mitchell2023detectgpt,sadasivan2023aigenerated}.
+We also know that LLMs are sensitive to prompt phrasing: minor rewording can flip correct answers to incorrect ones~\citep{razavi2025benchmarking}.
+And we know that LLMs adapt their behavior to perceived user preferences, a phenomenon studied as sycophancy~\citep{sharma2024sycophancy}.
+What we do not know is whether these threads combine: whether LLMs detect the stylistic markers of human versus LLM authorship in their input prompts, and whether this detection triggers systematic behavioral differences.
+
+{\bf Why does this matter?}
+If models behave differently based on perceived prompter identity, this has consequences along three dimensions.
+First, for \textit{multi-agent reliability}: LLM-to-LLM communication chains may produce different outputs than human-to-LLM chains, even with identical semantic content.
+Second, for \textit{AI safety}: behavioral adaptation based on inferred prompter identity could be exploited or could introduce systematic biases in automated pipelines.
+Third, for \textit{evaluation methodology}: if prompt style is a confound, benchmarks using human-written prompts may not reflect performance in deployment settings where prompts are machine-generated.
+
+{\bf What is missing in the literature?}
+\citet{kervadec2023unnatural} demonstrated that base LLMs process machine-optimized (nonsensical) prompts through fundamentally different internal pathways than human-written prompts.
+However, their work examined base models with adversarially optimized prompts that bear no resemblance to natural language.
+\citet{sharma2024sycophancy} showed that instruction-tuned models adapt to perceived user preferences, but tested explicit preference signals rather than implicit stylistic cues.
+No prior work has tested whether instruction-tuned LLMs respond differently to well-formed, semantically equivalent prompts that vary only in human-versus-LLM authorship style.
+
+{\bf Our approach.}
+We construct content-controlled prompt pairs: for each question, we create a human-style variant (casual, direct, informal) and an LLM-style variant (formal, verbose, structured), preserving semantic content.
+We test these across five experiments on three frontier models (\gptfour, \claude, \gemini), measuring style detection ability, factual accuracy, reasoning performance, response characteristics, and the effect of explicit source attribution.
+
+{\bf What do we find?}
+The effects are large and consistent.
+LLM-style prompts elicit responses that are 57--63\% longer (Cohen's $d = 2.15$--$4.48$, $p < 0.0001$) and significantly more formal ($d = 1.41$--$2.13$).
+On \bbh reasoning, LLM-style prompts improve accuracy by 20 percentage points for \gptfour ($p = 0.003$) and 27 points for \gemini ($p < 0.001$)---not because models reason better, but because they choose different response formats.
+Explicitly telling the model ``this is from a human'' versus ``this is from an AI'' produces no effect, confirming that the adaptation is driven by implicit style detection.
+
+In summary, our main contributions are:
+\begin{itemize}[leftmargin=*,itemsep=0pt,topsep=0pt]
+    \item We present the first controlled study of whether instruction-tuned LLMs respond differently to human-style versus LLM-style prompts with matched semantic content.
+    \item We demonstrate that prompt style produces large, statistically significant effects on response length ($d > 2$), formality, and task accuracy across three frontier models.
+    \item We identify the mechanism driving accuracy differences: LLMs interpret prompt style as a signal for expected response format, choosing verbose explanations for human-style prompts and structured outputs for LLM-style prompts.
+    \item We show that explicit attribution has no effect, establishing that the behavioral adaptation is implicit and style-driven rather than driven by stated prompter identity.
+\end{itemize}

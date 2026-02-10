@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "hey can you explain machine learning?"}], "temperature": 0.0, "max_tokens": 500, "response": "Of course! I'd be happy to explain machine learning. Let's break", "timestamp": 1770754733.8135912}

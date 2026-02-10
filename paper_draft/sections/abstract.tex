@@ -1,0 +1,9 @@
+\begin{abstract}
+As large language models (LLMs) are increasingly deployed in multi-agent pipelines where LLMs prompt other LLMs, understanding whether prompt style affects model behavior is critical for reliability and safety.
+We test whether instruction-tuned LLMs respond differently to prompts written in recognizably human style versus LLM style, with semantic content held constant.
+Across five experiments on three frontier models (GPT-4.1, Claude Sonnet 4.5, Gemini 2.5 Pro), we find strong evidence that prompt style significantly affects LLM behavior.
+LLM-style prompts elicit responses that are 57--63\% longer (Cohen's $d = 2.15$--$4.48$, $p < 0.0001$) and use more formal vocabulary ($d = 1.41$--$2.13$).
+On reasoning tasks, LLM-style prompts improve accuracy by 20--27 percentage points ($p < 0.005$) for two of three models, primarily because human-style prompts trigger verbose responses that fail to provide direct answers.
+However, explicit attribution (``this prompt is from a human/AI'') produces no measurable effect, indicating that the behavioral adaptation is driven by implicit style detection rather than explicit source awareness.
+Our findings have direct implications for prompt engineering, multi-agent system design, and LLM evaluation methodology.
+\end{abstract}

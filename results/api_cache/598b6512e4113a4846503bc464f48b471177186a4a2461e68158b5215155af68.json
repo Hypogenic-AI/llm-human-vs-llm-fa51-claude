@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "Is the following sentence plausible? \"Robert Lewandowski threw a touchdown.\" Answer yes or no."}], "temperature": 0.0, "max_tokens": 200, "response": "\n\"threw a", "timestamp": 1770753021.9073591}

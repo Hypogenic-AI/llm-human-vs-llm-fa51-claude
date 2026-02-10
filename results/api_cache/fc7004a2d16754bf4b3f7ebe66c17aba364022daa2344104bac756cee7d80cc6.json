@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "hey in lewis carroll's poem the hunting of the snark, what did the elusive, troublesome snark turn into to fool hunters?"}], "temperature": 0.0, "max_tokens": 200, "response": "That's a fantastic question that gets", "timestamp": 1770751416.0139668}

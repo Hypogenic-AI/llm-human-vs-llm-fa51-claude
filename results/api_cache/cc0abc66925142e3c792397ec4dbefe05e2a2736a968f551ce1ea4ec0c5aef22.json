@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "Answer this question: In what year's Olympics were electric timing devices and a public-address system used for the first time?"}], "temperature": 0.0, "max_tokens": 200, "response": "The **1912 Stockholm", "timestamp": 1770751253.516358}

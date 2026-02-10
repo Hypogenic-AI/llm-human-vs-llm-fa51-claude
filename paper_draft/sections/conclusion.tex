@@ -1,0 +1,19 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+We presented the first controlled study of whether instruction-tuned LLMs respond differently to human-style versus LLM-style prompts.
+Across five experiments on three frontier models, we find that prompt style significantly affects LLM behavior.
+The effects are large: LLM-style prompts elicit responses 57--63\% longer ($d = 2.15$--$4.48$), more formal ($d = 1.41$--$2.13$), and up to 27 percentage points more accurate on structured reasoning tasks.
+The mechanism is style-matching: models interpret prompt style as a signal for expected response format, producing explanatory responses for human-style prompts and structured outputs for LLM-style prompts.
+Explicit attribution has no effect, confirming that the adaptation is implicit and style-driven.
+
+These findings have direct practical implications.
+Multi-agent systems should use formal, structured prompts for reliable downstream processing.
+LLM evaluation benchmarks should control for prompt style as a confound.
+And the broader AI safety community should consider that models may behave differently depending on whether they perceive their interlocutor as human or machine.
+
+Several questions remain open.
+Does this behavioral adaptation emerge during pretraining, instruction tuning, or RLHF?
+Can it be exploited for adversarial purposes?
+And does fine-tuning on LLM-to-LLM conversations change these dynamics?
+We hope our work motivates further investigation into how LLMs perceive and adapt to their communicative context.

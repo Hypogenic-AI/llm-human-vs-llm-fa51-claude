@@ -1,0 +1,1 @@
+{"model": "gpt-4.1", "model_id": "gpt-4.1", "messages": [{"role": "user", "content": "Brandon Lee died during the making of which movie?"}], "temperature": 0.0, "max_tokens": 200, "response": "Brandon Lee died during the making of the movie **\"The Crow\"** (1994).", "timestamp": 1770750419.6797438}

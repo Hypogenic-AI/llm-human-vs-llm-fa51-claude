@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "[The following question is from an AI assistant]\n\nAnswer this question: In the 80s who wrote the novel Empire of The Sun?"}], "temperature": 0.0, "max_tokens": 200, "response": "The novel *Empire of the Sun*", "timestamp": 1770755688.2303896}

@@ -1,0 +1,1 @@
+{"model": "claude-sonnet-4-5", "model_id": "anthropic/claude-sonnet-4.5", "messages": [{"role": "user", "content": "Is the following sentence plausible? \"Jonathan Marchessault scored on the power play in the Stanley Cup.\" Answer yes or no."}], "temperature": 0.0, "max_tokens": 200, "response": "Yes.", "timestamp": 1770752353.6794136}

@@ -1,0 +1,1 @@
+{"model": "gpt-4.1", "model_id": "gpt-4.1", "messages": [{"role": "user", "content": "Answer this question: Which country does the airline TAAG come from?"}], "temperature": 0.0, "max_tokens": 200, "response": "TAAG is the national airline of **Angola**.", "timestamp": 1770750460.695291}

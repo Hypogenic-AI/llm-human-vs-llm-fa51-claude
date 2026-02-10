@@ -1,0 +1,1 @@
+{"model": "claude-sonnet-4-5", "model_id": "anthropic/claude-sonnet-4.5", "messages": [{"role": "user", "content": "Who had a Too Legit To Quit Tour? thx"}], "temperature": 0.0, "max_tokens": 200, "response": "MC Hammer had the \"Too Legit to Quit Tour.\" It was in support of his 1991 album of the same name, \"Too Legit to Quit.\"", "timestamp": 1770751031.7265418}

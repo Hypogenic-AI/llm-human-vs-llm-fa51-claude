@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "hey can you explain the benefits of meditation?"}], "temperature": 0.0, "max_tokens": 500, "response": "Of course! Explaining the benefits of meditation is one of my favorite topics. It'", "timestamp": 1770754850.3515244}

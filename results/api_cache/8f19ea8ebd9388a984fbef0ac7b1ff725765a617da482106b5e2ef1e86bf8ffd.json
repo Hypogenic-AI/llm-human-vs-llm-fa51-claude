@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "Is the following sentence plausible? \"Santi Cazorla earned a red card in the Champions League Final.\" Answer yes or no."}], "temperature": 0.0, "max_tokens": 200, "response": "No.", "timestamp": 1770753063.4358153}

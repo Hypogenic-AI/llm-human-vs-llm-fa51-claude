@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "[The following question is from an AI assistant]\n\nAnswer this question: Kagoshima international airport is in which country?"}], "temperature": 0.0, "max_tokens": 200, "response": "Kagoshima International Airport is", "timestamp": 1770755696.21336}

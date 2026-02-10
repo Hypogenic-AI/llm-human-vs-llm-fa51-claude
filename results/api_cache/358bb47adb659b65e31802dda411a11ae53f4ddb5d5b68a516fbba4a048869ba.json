@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "any idea in the 80s who wrote the novel empire of the sun?"}], "temperature": 0.0, "max_tokens": 200, "response": "Yes, absolutely. The novel *", "timestamp": 1770751489.662341}

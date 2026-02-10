@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "[The following question is from a human user]\n\nAnswer this question: If I Were A Rich Man Was a big hit from which stage show?"}], "temperature": 0.0, "max_tokens": 200, "response": "That would be the classic musical", "timestamp": 1770755613.5373054}

@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "explain how do batteries work to me"}], "temperature": 0.0, "max_tokens": 500, "response": "Of course! Let's break down how batteries work using a simple analogy and then get", "timestamp": 1770754938.3762324}

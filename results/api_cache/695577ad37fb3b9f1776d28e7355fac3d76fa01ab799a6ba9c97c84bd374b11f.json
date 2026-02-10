@@ -1,0 +1,1 @@
+{"model": "gpt-4.1", "model_id": "gpt-4.1", "messages": [{"role": "user", "content": "Is the following sentence plausible? \"David Silva took a throw in.\" (yes/no?)"}], "temperature": 0.0, "max_tokens": 200, "response": "Yes.", "timestamp": 1770751798.9892242}

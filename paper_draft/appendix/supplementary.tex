@@ -1,0 +1,66 @@
+\section{Supplementary Material}
+\label{sec:appendix}
+
+\subsection{Experiment Configuration}
+\label{sec:appendix_config}
+
+\Tabref{tab:config} summarizes the full experimental configuration.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{@{}ll@{}}
+        \toprule
+        Parameter & Value \\
+        \midrule
+        Random seed & 42 \\
+        Temperature & 0.0 \\
+        Max tokens (QA) & 200 \\
+        Max tokens (open-ended) & 500 \\
+        Samples (Exp.\ 1) & 40 pairs (80 total) \\
+        Samples (Exp.\ 2) & 60 per style \\
+        Samples (Exp.\ 3) & 60 per style \\
+        Samples (Exp.\ 4) & 40 per style \\
+        Samples (Exp.\ 5) & 40 per condition \\
+        Total API calls & $\sim$2,400 \\
+        \bottomrule
+    \end{tabular}
+    \caption{Full experimental configuration. All API responses were cached to disk using SHA-256 content hashing to ensure reproducibility.}
+    \label{tab:config}
+\end{table}
+
+\subsection{Additional Figures}
+\label{sec:appendix_figures}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/summary_overview.png}
+    \caption{Four-panel summary of main results. \figtop \figleft: Style detection accuracy by model. \figtop \figright: \bbhshort reasoning accuracy by prompt style. \figbottom \figleft: Response word count by prompt style on open-ended questions. \figbottom \figright: Explicit attribution effects on \triviaqa accuracy.}
+    \label{fig:summary_overview}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/exp3_refined_analysis.png}
+    \caption{Refined analysis of \bbhshort reasoning results (Experiment~3), showing the relationship between answer extraction rate and accuracy across prompt styles and models.}
+    \label{fig:exp3_refined}
+\end{figure}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.95\linewidth]{figures/exp4_word_count_comparison.png}
+    \caption{Box plots of response word counts by prompt style for \gptfour and \claude on open-ended questions (Experiment~4). The distributions show clear separation, with LLM-style prompts consistently eliciting longer responses.}
+    \label{fig:word_count_box}
+\end{figure}
+
+\subsection{Error Analysis}
+\label{sec:appendix_errors}
+
+\para{BBH failure patterns (human-style).}
+When prompted in human style, \gptfour frequently produces multi-paragraph analyses of sports plausibility rather than a direct yes/no answer.
+The model often correctly reasons about the scenario but hedges its conclusion.
+For example, a response might state ``The sentence is \textit{not very plausible} in the context of...'' rather than a clear ``no,'' making automated extraction unreliable.
+
+\para{TriviaQA failure patterns (LLM-style).}
+For \claude with LLM-style prompts, the model occasionally provides the correct answer buried within a verbose explanation.
+The higher word count increases the probability that the answer substring appears somewhere in the response, potentially inflating LLM-style accuracy by a small margin.
+This is a measurement artifact that does not affect the response style findings.

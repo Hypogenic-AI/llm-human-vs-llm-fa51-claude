@@ -1,0 +1,1466 @@
+{
+  "gpt-4.1": {
+    "accuracy": 0.9375,
+    "human_recall": 0.875,
+    "llm_recall": 1.0,
+    "n_samples": 80,
+    "predictions": [
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Who had an 80s No 1 hit with Hold On To The Nights? thanks",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: What was the last US state to reintroduce alcohol after prohibition. Please ensure your response is accurate and well-c",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: In the Bible, who did the sun and moon stand still before. I would appreciate a clear and concise answer.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "ok of which african country is niamey the capital?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: What was President Gerald Ford's middle name. Please ensure your response is accurate and well-considered.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: Who was the next British Prime Minister after Arthur Balfour. Please ensure your response is accurate and well-consider",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "yo who was the last inmate of spandau jail in berlin?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Who was the director of the CIA from 1976-81? thanks",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "yo what was truman capote's last name before he was adopted by his stepfather?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: Which highway was Revisited in a classic 60s album by Bob Dylan. Please ensure your response is accurate and well-consi",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "yo what was president gerald ford's middle name?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: What is the Japanese share index called. Kindly provide a well-reasoned and accurate response.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Kagoshima international airport is in which country. I would appreciate a clear and concise answer.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "any idea in what year's olympics were electric timing devices and a public-address system used for the first time?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Who had an 80s No 1 hit with Hold On To The Nights. I would appreciate a clear and concise answer.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Men Against the Sea and Pitcairn's Island were two sequels to what famous novel. I would appreciate a clear and concise ",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Who was the next British Prime Minister after Arthur Balfour?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Which was the only eastern bloc country to participate in the 1984 LA Olympics?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: Which actress was voted Miss Greenwich Village in 1942. Kindly provide a well-reasoned and accurate response.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: \"Who was the target of the failed \"\"Bomb Plot\"\" of 1944?\". Please ensure your response is accurate and well-considered.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Which Lloyd Webber musical premiered in the US on 10th December 1993?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "What Michelle Pfeiffer movie got a boost from the Coolio song Gangsta's Paradise? thx",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "Which volcano in Tanzania is the highest mountain in Africa?",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "yo which highway was revisited in a classic 60s album by bob dylan?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "In the 80s who wrote the novel Empire of The Sun?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: Who directed the classic 30s western Stagecoach. Please ensure your response is accurate and well-considered.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Which volcano in Tanzania is the highest mountain in Africa. I would appreciate a clear and concise answer.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "hey the flag of libya is a plain rectangle of which color?",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "any idea art garfunkel trained for which profession although he didn't qualify?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: In Lewis Carroll's poem The Hunting of the Snark, what did the elusive, troublesome snark turn into to fool hunters. Kindly provide a well-reasoned an",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Could you please assist me by answering the following query: Which Lloyd Webber musical premiered in the US on 10th December 1993? Your thorough and precise response would be greatly appreciated.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Could you please assist me by answering the following query: What was Walter Matthau's first movie? Your thorough and precise response would be greatly appreciated.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: Who was the director of the CIA from 1976-81. Please ensure your response is accurate and well-considered.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Could you please assist me by answering the following query: In which sport could the Pacers take on the Pistons? Your thorough and precise response would be greatly appreciated.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "In which sport could the Pacers take on the Pistons?",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: Which musical featured the song The Street Where You Live. Please ensure your response is accurate and well-considered.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "do you know what was walter matthau's first movie?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "In the Bible, who did the sun and moon stand still before?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Could you please assist me by answering the following query: In what year's Olympics were electric timing devices and a public-address system used for the first time? Your thorough and precise respons",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: What claimed the life of singer Kathleen Ferrier. Please ensure your response is accurate and well-considered.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "What was the last US state to reintroduce alcohol after prohibition?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Who directed the classic 30s western Stagecoach? thx",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Which 90s sci fi series with James Belushi was based on Bruce Wagner's comic strip of the same name. I would appreciate ",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Which was the only eastern bloc country to participate in the 1984 LA Olympics. I would appreciate a clear and concise a",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Kim Carnes' nine weeks at No 1 with Bette Davis Eyes was interrupted for one week by which song?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "yo dave gilmore and roger waters were in which rock group?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Where in Canada is the Lion's Gate bridge? thanks",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "do you know men against the sea and pitcairn's island were two sequels to what famous novel?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: Where in Canada is the Lion's Gate bridge. Kindly provide a well-reasoned and accurate response.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: In the 80s who wrote the novel Empire of The Sun. Kindly provide a well-reasoned and accurate response.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "What was Eddie Murphy's first movie?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "What is the Japanese share index called?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Could you please assist me by answering the following query: What was Truman Capote's last name before he was adopted by his stepfather? Your thorough and precise response would be greatly appreciated",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Which 90s sci fi series with James Belushi was based on Bruce Wagner's comic strip of the same name?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "hey who was the man behind the chipmunks?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Of which African country is Niamey the capital. I would appreciate a clear and concise answer.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Rita Coolidge sang the title song for which Bond film?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: The flag of Libya is a plain rectangle of which color. Kindly provide a well-reasoned and accurate response.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "What was the name of Michael Jackson's autobiography written in 1988? thanks",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: Who had a 70s No 1 hit with Kiss You All Over. Kindly provide a well-reasoned and accurate response.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: In which decade did stereo records first go on sale. Kindly provide a well-reasoned and accurate response.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Dave Gilmore and Roger Waters were in which rock group. I would appreciate a clear and concise answer.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "Kagoshima international airport is in which country?",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "\"Who was the target of the failed \"\"Bomb Plot\"\" of 1944?\"?",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Kim Carnes' nine weeks at No 1 with Bette Davis Eyes was interrupted for one week by which song. I would appreciate a cl",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Who was the man behind The Chipmunks. I would appreciate a clear and concise answer.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Which musical featured the song The Street Where You Live?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: What was Eddie Murphy's first movie. Kindly provide a well-reasoned and accurate response.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: What Michelle Pfeiffer movie got a boost from the Coolio song Gangsta's Paradise. I would appreciate a clear and concise",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "If I Were A Rich Man Was a big hit from which stage show?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: If I Were A Rich Man Was a big hit from which stage show. I would appreciate a clear and concise answer.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "hey what claimed the life of singer kathleen ferrier?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "In Lewis Carroll's poem The Hunting of the Snark, what did the elusive, troublesome snark turn into to fool hunters?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "In which decade did stereo records first go on sale?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: What was the name of Michael Jackson's autobiography written in 1988. Please ensure your response is accurate and well-",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Which actress was voted Miss Greenwich Village in 1942? thx",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Who had a 70s No 1 hit with Kiss You All Over? thx",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Could you please assist me by answering the following query: Rita Coolidge sang the title song for which Bond film? Your thorough and precise response would be greatly appreciated.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Art Garfunkel trained for which profession although he didn't qualify. I would appreciate a clear and concise answer.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Who was the last inmate of Spandau jail in Berlin. I would appreciate a clear and concise answer.",
+        "response": "llm"
+      }
+    ]
+  },
+  "claude-sonnet-4-5": {
+    "accuracy": 1.0,
+    "human_recall": 1.0,
+    "llm_recall": 1.0,
+    "n_samples": 80,
+    "predictions": [
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Who had an 80s No 1 hit with Hold On To The Nights? thanks",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: What was the last US state to reintroduce alcohol after prohibition. Please ensure your response is accurate and well-c",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: In the Bible, who did the sun and moon stand still before. I would appreciate a clear and concise answer.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "ok of which african country is niamey the capital?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: What was President Gerald Ford's middle name. Please ensure your response is accurate and well-considered.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: Who was the next British Prime Minister after Arthur Balfour. Please ensure your response is accurate and well-consider",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "yo who was the last inmate of spandau jail in berlin?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Who was the director of the CIA from 1976-81? thanks",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "yo what was truman capote's last name before he was adopted by his stepfather?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: Which highway was Revisited in a classic 60s album by Bob Dylan. Please ensure your response is accurate and well-consi",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "yo what was president gerald ford's middle name?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: What is the Japanese share index called. Kindly provide a well-reasoned and accurate response.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Kagoshima international airport is in which country. I would appreciate a clear and concise answer.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "any idea in what year's olympics were electric timing devices and a public-address system used for the first time?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Who had an 80s No 1 hit with Hold On To The Nights. I would appreciate a clear and concise answer.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Men Against the Sea and Pitcairn's Island were two sequels to what famous novel. I would appreciate a clear and concise ",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Who was the next British Prime Minister after Arthur Balfour?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Which was the only eastern bloc country to participate in the 1984 LA Olympics?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: Which actress was voted Miss Greenwich Village in 1942. Kindly provide a well-reasoned and accurate response.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: \"Who was the target of the failed \"\"Bomb Plot\"\" of 1944?\". Please ensure your response is accurate and well-considered.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Which Lloyd Webber musical premiered in the US on 10th December 1993?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "What Michelle Pfeiffer movie got a boost from the Coolio song Gangsta's Paradise? thx",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Which volcano in Tanzania is the highest mountain in Africa?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "yo which highway was revisited in a classic 60s album by bob dylan?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "In the 80s who wrote the novel Empire of The Sun?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: Who directed the classic 30s western Stagecoach. Please ensure your response is accurate and well-considered.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Which volcano in Tanzania is the highest mountain in Africa. I would appreciate a clear and concise answer.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "hey the flag of libya is a plain rectangle of which color?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "any idea art garfunkel trained for which profession although he didn't qualify?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: In Lewis Carroll's poem The Hunting of the Snark, what did the elusive, troublesome snark turn into to fool hunters. Kindly provide a well-reasoned an",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Could you please assist me by answering the following query: Which Lloyd Webber musical premiered in the US on 10th December 1993? Your thorough and precise response would be greatly appreciated.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Could you please assist me by answering the following query: What was Walter Matthau's first movie? Your thorough and precise response would be greatly appreciated.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: Who was the director of the CIA from 1976-81. Please ensure your response is accurate and well-considered.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Could you please assist me by answering the following query: In which sport could the Pacers take on the Pistons? Your thorough and precise response would be greatly appreciated.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "In which sport could the Pacers take on the Pistons?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: Which musical featured the song The Street Where You Live. Please ensure your response is accurate and well-considered.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "do you know what was walter matthau's first movie?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "In the Bible, who did the sun and moon stand still before?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Could you please assist me by answering the following query: In what year's Olympics were electric timing devices and a public-address system used for the first time? Your thorough and precise respons",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: What claimed the life of singer Kathleen Ferrier. Please ensure your response is accurate and well-considered.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "What was the last US state to reintroduce alcohol after prohibition?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Who directed the classic 30s western Stagecoach? thx",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Which 90s sci fi series with James Belushi was based on Bruce Wagner's comic strip of the same name. I would appreciate ",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Which was the only eastern bloc country to participate in the 1984 LA Olympics. I would appreciate a clear and concise a",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Kim Carnes' nine weeks at No 1 with Bette Davis Eyes was interrupted for one week by which song?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "yo dave gilmore and roger waters were in which rock group?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Where in Canada is the Lion's Gate bridge? thanks",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "do you know men against the sea and pitcairn's island were two sequels to what famous novel?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: Where in Canada is the Lion's Gate bridge. Kindly provide a well-reasoned and accurate response.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: In the 80s who wrote the novel Empire of The Sun. Kindly provide a well-reasoned and accurate response.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "What was Eddie Murphy's first movie?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "What is the Japanese share index called?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Could you please assist me by answering the following query: What was Truman Capote's last name before he was adopted by his stepfather? Your thorough and precise response would be greatly appreciated",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Which 90s sci fi series with James Belushi was based on Bruce Wagner's comic strip of the same name?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "hey who was the man behind the chipmunks?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Of which African country is Niamey the capital. I would appreciate a clear and concise answer.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Rita Coolidge sang the title song for which Bond film?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: The flag of Libya is a plain rectangle of which color. Kindly provide a well-reasoned and accurate response.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "What was the name of Michael Jackson's autobiography written in 1988? thanks",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: Who had a 70s No 1 hit with Kiss You All Over. Kindly provide a well-reasoned and accurate response.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: In which decade did stereo records first go on sale. Kindly provide a well-reasoned and accurate response.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Dave Gilmore and Roger Waters were in which rock group. I would appreciate a clear and concise answer.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Kagoshima international airport is in which country?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "\"Who was the target of the failed \"\"Bomb Plot\"\" of 1944?\"?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Kim Carnes' nine weeks at No 1 with Bette Davis Eyes was interrupted for one week by which song. I would appreciate a cl",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Who was the man behind The Chipmunks. I would appreciate a clear and concise answer.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Which musical featured the song The Street Where You Live?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: What was Eddie Murphy's first movie. Kindly provide a well-reasoned and accurate response.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: What Michelle Pfeiffer movie got a boost from the Coolio song Gangsta's Paradise. I would appreciate a clear and concise",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "If I Were A Rich Man Was a big hit from which stage show?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: If I Were A Rich Man Was a big hit from which stage show. I would appreciate a clear and concise answer.",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "hey what claimed the life of singer kathleen ferrier?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "In Lewis Carroll's poem The Hunting of the Snark, what did the elusive, troublesome snark turn into to fool hunters?",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "In which decade did stereo records first go on sale?",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: What was the name of Michael Jackson's autobiography written in 1988. Please ensure your response is accurate and well-",
+        "response": "llm"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Which actress was voted Miss Greenwich Village in 1942? thx",
+        "response": "human"
+      },
+      {
+        "true_label": "human",
+        "predicted": "human",
+        "prompt_text": "Who had a 70s No 1 hit with Kiss You All Over? thx",
+        "response": "human"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Could you please assist me by answering the following query: Rita Coolidge sang the title song for which Bond film? Your thorough and precise response would be greatly appreciated.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Art Garfunkel trained for which profession although he didn't qualify. I would appreciate a clear and concise answer.",
+        "response": "llm"
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Who was the last inmate of Spandau jail in Berlin. I would appreciate a clear and concise answer.",
+        "response": "llm"
+      }
+    ]
+  },
+  "gemini-2.5-pro": {
+    "accuracy": 0.5,
+    "human_recall": 0.0,
+    "llm_recall": 1.0,
+    "n_samples": 80,
+    "predictions": [
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "Who had an 80s No 1 hit with Hold On To The Nights? thanks",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: What was the last US state to reintroduce alcohol after prohibition. Please ensure your response is accurate and well-c",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: In the Bible, who did the sun and moon stand still before. I would appreciate a clear and concise answer.",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "ok of which african country is niamey the capital?",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: What was President Gerald Ford's middle name. Please ensure your response is accurate and well-considered.",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: Who was the next British Prime Minister after Arthur Balfour. Please ensure your response is accurate and well-consider",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "yo who was the last inmate of spandau jail in berlin?",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "Who was the director of the CIA from 1976-81? thanks",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "yo what was truman capote's last name before he was adopted by his stepfather?",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: Which highway was Revisited in a classic 60s album by Bob Dylan. Please ensure your response is accurate and well-consi",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "yo what was president gerald ford's middle name?",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: What is the Japanese share index called. Kindly provide a well-reasoned and accurate response.",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Kagoshima international airport is in which country. I would appreciate a clear and concise answer.",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "any idea in what year's olympics were electric timing devices and a public-address system used for the first time?",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Who had an 80s No 1 hit with Hold On To The Nights. I would appreciate a clear and concise answer.",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Men Against the Sea and Pitcairn's Island were two sequels to what famous novel. I would appreciate a clear and concise ",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "Who was the next British Prime Minister after Arthur Balfour?",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "Which was the only eastern bloc country to participate in the 1984 LA Olympics?",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: Which actress was voted Miss Greenwich Village in 1942. Kindly provide a well-reasoned and accurate response.",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: \"Who was the target of the failed \"\"Bomb Plot\"\" of 1944?\". Please ensure your response is accurate and well-considered.",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "Which Lloyd Webber musical premiered in the US on 10th December 1993?",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "What Michelle Pfeiffer movie got a boost from the Coolio song Gangsta's Paradise? thx",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "Which volcano in Tanzania is the highest mountain in Africa?",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "yo which highway was revisited in a classic 60s album by bob dylan?",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "In the 80s who wrote the novel Empire of The Sun?",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: Who directed the classic 30s western Stagecoach. Please ensure your response is accurate and well-considered.",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Which volcano in Tanzania is the highest mountain in Africa. I would appreciate a clear and concise answer.",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "hey the flag of libya is a plain rectangle of which color?",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "any idea art garfunkel trained for which profession although he didn't qualify?",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: In Lewis Carroll's poem The Hunting of the Snark, what did the elusive, troublesome snark turn into to fool hunters. Kindly provide a well-reasoned an",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Could you please assist me by answering the following query: Which Lloyd Webber musical premiered in the US on 10th December 1993? Your thorough and precise response would be greatly appreciated.",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Could you please assist me by answering the following query: What was Walter Matthau's first movie? Your thorough and precise response would be greatly appreciated.",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: Who was the director of the CIA from 1976-81. Please ensure your response is accurate and well-considered.",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Could you please assist me by answering the following query: In which sport could the Pacers take on the Pistons? Your thorough and precise response would be greatly appreciated.",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "In which sport could the Pacers take on the Pistons?",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: Which musical featured the song The Street Where You Live. Please ensure your response is accurate and well-considered.",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "do you know what was walter matthau's first movie?",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "In the Bible, who did the sun and moon stand still before?",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Could you please assist me by answering the following query: In what year's Olympics were electric timing devices and a public-address system used for the first time? Your thorough and precise respons",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: What claimed the life of singer Kathleen Ferrier. Please ensure your response is accurate and well-considered.",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "What was the last US state to reintroduce alcohol after prohibition?",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "Who directed the classic 30s western Stagecoach? thx",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Which 90s sci fi series with James Belushi was based on Bruce Wagner's comic strip of the same name. I would appreciate ",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Which was the only eastern bloc country to participate in the 1984 LA Olympics. I would appreciate a clear and concise a",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "Kim Carnes' nine weeks at No 1 with Bette Davis Eyes was interrupted for one week by which song?",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "yo dave gilmore and roger waters were in which rock group?",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "Where in Canada is the Lion's Gate bridge? thanks",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "do you know men against the sea and pitcairn's island were two sequels to what famous novel?",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: Where in Canada is the Lion's Gate bridge. Kindly provide a well-reasoned and accurate response.",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: In the 80s who wrote the novel Empire of The Sun. Kindly provide a well-reasoned and accurate response.",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "What was Eddie Murphy's first movie?",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "What is the Japanese share index called?",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Could you please assist me by answering the following query: What was Truman Capote's last name before he was adopted by his stepfather? Your thorough and precise response would be greatly appreciated",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "Which 90s sci fi series with James Belushi was based on Bruce Wagner's comic strip of the same name?",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "hey who was the man behind the chipmunks?",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Of which African country is Niamey the capital. I would appreciate a clear and concise answer.",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "Rita Coolidge sang the title song for which Bond film?",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: The flag of Libya is a plain rectangle of which color. Kindly provide a well-reasoned and accurate response.",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "What was the name of Michael Jackson's autobiography written in 1988? thanks",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: Who had a 70s No 1 hit with Kiss You All Over. Kindly provide a well-reasoned and accurate response.",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: In which decade did stereo records first go on sale. Kindly provide a well-reasoned and accurate response.",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Dave Gilmore and Roger Waters were in which rock group. I would appreciate a clear and concise answer.",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "Kagoshima international airport is in which country?",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "\"Who was the target of the failed \"\"Bomb Plot\"\" of 1944?\"?",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Kim Carnes' nine weeks at No 1 with Bette Davis Eyes was interrupted for one week by which song. I would appreciate a cl",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Who was the man behind The Chipmunks. I would appreciate a clear and concise answer.",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "Which musical featured the song The Street Where You Live?",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I am seeking information regarding the following: What was Eddie Murphy's first movie. Kindly provide a well-reasoned and accurate response.",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: What Michelle Pfeiffer movie got a boost from the Coolio song Gangsta's Paradise. I would appreciate a clear and concise",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "If I Were A Rich Man Was a big hit from which stage show?",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: If I Were A Rich Man Was a big hit from which stage show. I would appreciate a clear and concise answer.",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "hey what claimed the life of singer kathleen ferrier?",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "In Lewis Carroll's poem The Hunting of the Snark, what did the elusive, troublesome snark turn into to fool hunters?",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "In which decade did stereo records first go on sale?",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "I would appreciate it if you could provide the answer to the following question: What was the name of Michael Jackson's autobiography written in 1988. Please ensure your response is accurate and well-",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "Which actress was voted Miss Greenwich Village in 1942? thx",
+        "response": ""
+      },
+      {
+        "true_label": "human",
+        "predicted": "llm",
+        "prompt_text": "Who had a 70s No 1 hit with Kiss You All Over? thx",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Could you please assist me by answering the following query: Rita Coolidge sang the title song for which Bond film? Your thorough and precise response would be greatly appreciated.",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Art Garfunkel trained for which profession although he didn't qualify. I would appreciate a clear and concise answer.",
+        "response": ""
+      },
+      {
+        "true_label": "llm",
+        "predicted": "llm",
+        "prompt_text": "Please provide a comprehensive and accurate response to the following question: Who was the last inmate of Spandau jail in Berlin. I would appreciate a clear and concise answer.",
+        "response": ""
+      }
+    ]
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "seed": 42,
+  "models": [
+    "gpt-4.1",
+    "claude-sonnet-4-5",
+    "gemini-2.5-pro"
+  ],
+  "timestamp": "2026-02-10T18:56:59.941189",
+  "python_version": "3.12.8 (main, Dec 19 2024, 14:33:20) [Clang 18.1.8 ]"
+}

@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "Answer this question: What was Truman Capote's last name before he was adopted by his stepfather?"}], "temperature": 0.0, "max_tokens": 200, "response": "Truman Capote's last name", "timestamp": 1770751412.2658749}

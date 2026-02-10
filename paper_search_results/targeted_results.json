@@ -1,0 +1,252 @@
+[
+  {
+    "title": "DPRF: A Generalizable Dynamic Persona Refinement Framework for Optimizing Behavior Alignment Between Personalized LLM Role-Playing Agents and Humans",
+    "year": 2025,
+    "authors": "Bingsheng Yao, Bo Sun, Yuanzhe Dong",
+    "citations": 2,
+    "arxiv": "2510.14205",
+    "abstract": "The emerging large language model role-playing agents (LLM RPAs) aim to simulate individual human behaviors, but the persona fidelity is often undermined by manually-created profiles (e.g., cherry-picked information and personality characteristics) without validating the alignment with the target individuals. To address this limitation, our work introduces the Dynamic Persona Refinement Framework ",
+    "score": 14,
+    "url": "https://www.semanticscholar.org/paper/774df6a650948a12b59cfeb8db803cd493c3ac35"
+  },
+  {
+    "title": "Do Role-Playing Agents Practice What They Preach? Belief-Behavior Consistency in LLM-Based Simulations of Human Trust",
+    "year": 2025,
+    "authors": "Amogh Mannekote, Adam Davies, Guohao Li",
+    "citations": 1,
+    "arxiv": "2507.02197",
+    "abstract": "As LLMs are increasingly studied as role-playing agents to generate synthetic data for human behavioral research, ensuring that their outputs remain coherent with their assigned roles has become a critical concern. In this paper, we investigate how consistently LLM-based role-playing agents'stated beliefs about the behavior of the people they are asked to role-play (\"what they say\") correspond to ",
+    "score": 13,
+    "url": "https://www.semanticscholar.org/paper/02bd233262065611a89439e036ec42220e5739bb"
+  },
+  {
+    "title": "Efficient and Effective Role Player: A Compact Knowledge-grounded Persona-based Dialogue Model Enhanced by LLM Distillation",
+    "year": 2025,
+    "authors": "Linmei Hu, Xinyu Zhang, Dandan Song",
+    "citations": 12,
+    "arxiv": "",
+    "abstract": "Incorporating explicit personas into dialogue models is critical for generating responses that fulfill specific user needs and preferences, creating a more personalized and engaging interaction. Early works on persona-based dialogue generation directly concatenate the persona descriptions and dialogue history into relatively small pre-trained language models (PLMs) for response generation, which l",
+    "score": 11,
+    "url": "https://www.semanticscholar.org/paper/527703de54107a5bf26a252053644d8295aa856d"
+  },
+  {
+    "title": "TwinVoice: A Multi-dimensional Benchmark Towards Digital Twins via LLM Persona Simulation",
+    "year": 2025,
+    "authors": "Bangde Du, Minghao Guo, Songming He",
+    "citations": 1,
+    "arxiv": "2510.25536",
+    "abstract": "Large Language Models (LLMs) are exhibiting emergent human-like abilities and are increasingly envisioned as the foundation for simulating an individual's communication style, behavioral tendencies, and personality traits. However, current evaluations of LLM-based persona simulation remain limited: most rely on synthetic dialogues, lack systematic frameworks, and lack analysis of the capability re",
+    "score": 11,
+    "url": "https://www.semanticscholar.org/paper/7159179a83cbcdd2e86492849d984e0d78bde214"
+  },
+  {
+    "title": "Measuring Stability Beyond Accuracy in Small Open-Source Medical Large Language Models for Pediatric Endocrinology",
+    "year": 2025,
+    "authors": "Vanessa D'Amario, Randy Daniel, Alessandro Zanetti",
+    "citations": 0,
+    "arxiv": "2601.11567",
+    "abstract": "Small open-source medical large language models (LLMs) offer promising opportunities for low-resource deployment and broader accessibility. However, their evaluation is often limited to accuracy on medical multiple choice question (MCQ) benchmarks, and lacks evaluation of consistency, robustness, or reasoning behavior. We use MCQ coupled to human evaluation and clinical review to assess six small ",
+    "score": 11,
+    "url": "https://www.semanticscholar.org/paper/d84ea120293f01e21190f34f1627390e388b3e54"
+  },
+  {
+    "title": "Persona is a Double-edged Sword: Mitigating the Negative Impact of Role-playing Prompts in Zero-shot Reasoning Tasks",
+    "year": 2024,
+    "authors": "Junseok Kim, Nakyeong Yang, Kyomin Jung",
+    "citations": 24,
+    "arxiv": "2408.08631",
+    "abstract": "Recent studies demonstrate that prompting a role-playing persona to an LLM improves reasoning capability. However, assigning an adequate persona is difficult since LLMs are extremely sensitive to assigned prompts; thus, inaccurately defined personas sometimes hinder LLMs and degrade their reasoning capabilities. In this paper, we first investigate the potential negative impact of injecting persona",
+    "score": 10,
+    "url": "https://www.semanticscholar.org/paper/1d36a4d23c5866c9aa69f99a7f53026504c3c75a"
+  },
+  {
+    "title": "Enhancing Persona Consistency for LLMs' Role-Playing using Persona-Aware Contrastive Learning",
+    "year": 2025,
+    "authors": "Ke Ji, Yixin Lian, Linxu Li",
+    "citations": 15,
+    "arxiv": "2503.17662",
+    "abstract": "In recent years, large language models (LLMs) have achieved breakthrough progress in many dialogue generation tasks. However, their lack of emotion and fine-grained role awareness limits the model's ability to provide personalized and diverse interactions further. Current methods face high costs in collecting high-quality annotated data for scenarios such as role-playing, and traditional human ali",
+    "score": 10,
+    "url": "https://www.semanticscholar.org/paper/6fcb627f629f3d14eb05c2ac357bb16702fb3e49"
+  },
+  {
+    "title": "Crafting Customisable Characters with LLMs: A Persona-Driven Role-Playing Agent Framework",
+    "year": 2024,
+    "authors": "Bohao Yang, Dong Liu, Chen Tang",
+    "citations": 3,
+    "arxiv": "2406.17962",
+    "abstract": "Large Language Models (LLMs) demonstrate remarkable ability to comprehend instructions and generate human-like text, enabling sophisticated agent simulation beyond basic behavior replication. However, the potential for creating freely customisable characters remains underexplored. We introduce the Customisable Conversation Agent Framework, which employs LLMs to simulate real-world characters throu",
+    "score": 10,
+    "url": "https://www.semanticscholar.org/paper/b4a6e8083370e6b37385fda7d2d4bfc9ae3b0fe0"
+  },
+  {
+    "title": "Encouraging Divergent Thinking in Large Language Models through Multi-Agent Debate",
+    "year": 2023,
+    "authors": "Tian Liang, Zhiwei He, Wenxiang Jiao",
+    "citations": 869,
+    "arxiv": "2305.19118",
+    "abstract": "Modern large language models (LLMs) like ChatGPT have shown remarkable performance on general language tasks but still struggle on complex reasoning tasks, which drives the research on cognitive behaviors of LLMs to explore human-like problem-solving strategies. Along this direction, one representative strategy is self-reflection, which asks an LLM to refine the solution with the feedback generate",
+    "score": 9,
+    "url": "https://www.semanticscholar.org/paper/385c74957858e7d6856d48e72b5a902b4c1aa28c"
+  },
+  {
+    "title": "ChatEval: Towards Better LLM-based Evaluators through Multi-Agent Debate",
+    "year": 2023,
+    "authors": "Chi-Min Chan, Weize Chen, Yusheng Su",
+    "citations": 763,
+    "arxiv": "2308.07201",
+    "abstract": "Text evaluation has historically posed significant challenges, often demanding substantial labor and time cost. With the emergence of large language models (LLMs), researchers have explored LLMs' potential as alternatives for human evaluation. While these single-agent-based approaches show promise, experimental results suggest that further advancements are needed to bridge the gap between their cu",
+    "score": 9,
+    "url": "https://www.semanticscholar.org/paper/ec58a564fdda29e6a9a0a7bab5eeb4c290f716d7"
+  },
+  {
+    "title": "From Persona to Personalization: A Survey on Role-Playing Language Agents",
+    "year": 2024,
+    "authors": "Jiangjie Chen, Xintao Wang, Rui Xu",
+    "citations": 191,
+    "arxiv": "2404.18231",
+    "abstract": "Recent advancements in large language models (LLMs) have significantly boosted the rise of Role-Playing Language Agents (RPLAs), i.e., specialized AI systems designed to simulate assigned personas. By harnessing multiple advanced abilities of LLMs, including in-context learning, instruction following, and social intelligence, RPLAs achieve a remarkable sense of human likeness and vivid role-playin",
+    "score": 9,
+    "url": "https://www.semanticscholar.org/paper/7f575e1a8e4c465b31f8928ffd13ad48aa961789"
+  },
+  {
+    "title": "Quantifying and Optimizing Global Faithfulness in Persona-driven Role-playing",
+    "year": 2024,
+    "authors": "Letian Peng, Jingbo Shang",
+    "citations": 13,
+    "arxiv": "2405.07726",
+    "abstract": "Persona-driven role-playing (PRP) aims to build AI characters that can respond to user queries by faithfully sticking with all persona statements. Unfortunately, existing faithfulness criteria for PRP are limited to coarse-grained LLM-based scoring without a clear definition or formulation. This paper presents a pioneering exploration to quantify PRP faithfulness as a fine-grained and explainable ",
+    "score": 9,
+    "url": "https://www.semanticscholar.org/paper/a0d00164fc4c2fd7db2efce29a084a0c085b68e7"
+  },
+  {
+    "title": "Unnatural language processing: How do language models handle machine-generated prompts?",
+    "year": 2023,
+    "authors": "Corentin Kervadec, Francesca Franzon, Marco Baroni",
+    "citations": 7,
+    "arxiv": "2310.15829",
+    "abstract": "Language model prompt optimization research has shown that semantically and grammatically well-formed manually crafted prompts are routinely outperformed by automatically generated token sequences with no apparent meaning or syntactic structure, including sequences of vectors from a model's embedding space. We use machine-generated prompts to probe how models respond to input that is not composed ",
+    "score": 9,
+    "url": "https://www.semanticscholar.org/paper/991d16222f1dbdf2f91f81fb81e022d161f3c640"
+  },
+  {
+    "title": "Revealing Political Bias in LLMs through Structured Multi-Agent Debate",
+    "year": 2025,
+    "authors": "Aishwarya Bandaru, Fabian Bindley, Trevor Bluth",
+    "citations": 2,
+    "arxiv": "2506.11825",
+    "abstract": "Large language models (LLMs) are increasingly used to simulate social behaviour, yet their political biases and interaction dynamics in debates remain underexplored. We investigate how LLM type and agent gender attributes influence political bias using a structured multi-agent debate framework, by engaging Neutral, Republican, and Democrat American LLM agents in debates on politically sensitive to",
+    "score": 9,
+    "url": "https://www.semanticscholar.org/paper/cf6d86298b0d468c60895b5d9b297d5a493202a9"
+  },
+  {
+    "title": "Two Tales of Persona in LLMs: A Survey of Role-Playing and Personalization",
+    "year": 2024,
+    "authors": "Yu-Min Tseng, Yu-Chao Huang, Teng-Yun Hsiao",
+    "citations": 199,
+    "arxiv": "2406.01171",
+    "abstract": "The concept of persona, originally adopted in dialogue literature, has re-surged as a promising framework for tailoring large language models (LLMs) to specific context (e.g., personalized search, LLM-as-a-judge). However, the growing research on leveraging persona in LLMs is relatively disorganized and lacks a systematic taxonomy. To close the gap, we present a comprehensive survey to categorize ",
+    "score": 8,
+    "url": "https://www.semanticscholar.org/paper/394c1272a672ddbfdde581c677617b960029c253"
+  },
+  {
+    "title": "What Should We Engineer in Prompts? Training Humans in Requirement-Driven LLM Use",
+    "year": 2024,
+    "authors": "Qianou Ma, Weirui Peng, Chenyang Yang",
+    "citations": 33,
+    "arxiv": "2409.08775",
+    "abstract": "Prompting LLMs for complex tasks (e.g., building a trip advisor chatbot) needs humans to clearly articulate customized requirements (e.g., \u201cstart the response with a tl;dr\u201d). However, existing prompt engineering instructions often lack focused training on requirement articulation and instead tend to emphasize increasingly automatable strategies (e.g., tricks like adding role-plays and \u201cthink step-",
+    "score": 8,
+    "url": "https://www.semanticscholar.org/paper/12deaa5c43111a2eabd71403eed5d49c26c83bd3"
+  },
+  {
+    "title": "CoSER: A Comprehensive Literary Dataset and Framework for Training and Evaluating LLM Role-Playing and Persona Simulation",
+    "year": 2025,
+    "authors": "Xintao Wang, Heng Wang, Yifei Zhang",
+    "citations": 24,
+    "arxiv": "2502.09082",
+    "abstract": "Role-playing language agents (RPLAs) have emerged as promising applications of large language models (LLMs). However, simulating established characters presents a challenging task for RPLAs, due to the lack of authentic character datasets and nuanced evaluation methods using such data. In this paper, we present CoSER, a collection of a high-quality dataset, open models, and an evaluation protocol ",
+    "score": 8,
+    "url": "https://www.semanticscholar.org/paper/434584f6d8e4e783bb948f8a8f1de0e2b2e7b380"
+  },
+  {
+    "title": "A Human-AI Comparative Analysis of Prompt Sensitivity in LLM-Based Relevance Judgment",
+    "year": 2025,
+    "authors": "Negar Arabzadeh, Charles L. A. Clarke",
+    "citations": 12,
+    "arxiv": "2504.12408",
+    "abstract": "Large Language Models (LLMs) are increasingly used to automate relevance judgments for information retrieval (IR) tasks, often demonstrating agreement with human labels that approaches inter-human agreement. To assess the robustness and reliability of LLM-based relevance judgments, we systematically investigate impact of prompt sensitivity on the task. We collected prompts for relevance assessment",
+    "score": 8,
+    "url": "https://www.semanticscholar.org/paper/bd80fff94d8774c5f7182d9694438ece57a1a933"
+  },
+  {
+    "title": "Agents of Diffusion: Enhancing Diffusion Language Models with Multi-Agent Reinforcement Learning for Structured Data Generation (Extended Version)",
+    "year": 2026,
+    "authors": "Aja Khanal, Kaushik T. Ranade, Rishabh Agrawal",
+    "citations": 0,
+    "arxiv": "2601.07152",
+    "abstract": "Generating high-quality structured data such as JSON records, remains a fundamental challenge for large language models (LLMs), particularly when semantic richness must coexist with strict schema adherence. While autoregressive LLMs offer strong structural consistency, they often struggle with semantic variation and output diversity. In contrast, diffusion language models (DLMs) introduce powerful",
+    "score": 8,
+    "url": "https://www.semanticscholar.org/paper/d6bdde81a923c255184f232c9d8d616c6ab6bc2d"
+  },
+  {
+    "title": "Supervisor Alignment Framework: Enhancing LLM Alignment with Query-Ignoring Strategy and Multi-Agent Interaction",
+    "year": 2025,
+    "authors": "Ziqun Bao, Yu Ji, Wen Wu",
+    "citations": 0,
+    "arxiv": "",
+    "abstract": "The increasing focus on value alignment in Large Language Models (LLMs) underscores the need to ensure alignment with human morals and avoid biased or harmful outputs. However, LLMs aligned using existing methods are still easily affected by adversarial prompt attacks. Inspired by psychology, this paper introduces a Supervisor Alignment framework, which innovatively incorporates a query-ignoring s",
+    "score": 8,
+    "url": "https://www.semanticscholar.org/paper/4572f8989b4832784d259cd1a2993d9696dc853b"
+  },
+  {
+    "title": "Causal MAS: A Survey of Large Language Model Architectures for Discovery and Effect Estimation",
+    "year": 2025,
+    "authors": "Adib Bazgir, Amir Habibdoust, Yuwen Zhang",
+    "citations": 0,
+    "arxiv": "2509.00987",
+    "abstract": "Large Language Models (LLMs) have demonstrated remarkable capabilities in various reasoning and generation tasks. However, their proficiency in complex causal reasoning, discovery, and estimation remains an area of active development, often hindered by issues like hallucination, reliance on spurious correlations, and difficulties in handling nuanced, domain-specific, or personalized causal relatio",
+    "score": 8,
+    "url": "https://www.semanticscholar.org/paper/df8c33f127389a74c22417088e8d74f351aae343"
+  },
+  {
+    "title": "Character is Destiny: Can Large Language Models Simulate Persona-Driven Decisions in Role-Playing?",
+    "year": 2024,
+    "authors": "Rui Xu, Xintao Wang, Jiangjie Chen",
+    "citations": 43,
+    "arxiv": "",
+    "abstract": "",
+    "score": 7,
+    "url": "https://www.semanticscholar.org/paper/f52c7d32739afdee794159e78af74dc5a3386b95"
+  },
+  {
+    "title": "Beyond Demographics: Aligning Role-playing LLM-based Agents Using Human Belief Networks",
+    "year": 2024,
+    "authors": "Yun-Shiuan Chuang, Zach Studdiford, Krirk Nirunwiroj",
+    "citations": 34,
+    "arxiv": "2406.17232",
+    "abstract": "Creating human-like large language model (LLM) agents is crucial for faithful social simulation. Having LLMs role-play based on demographic information sometimes improves human likeness but often does not. This study assessed whether LLM alignment with human behavior can be improved by integrating information from empirically-derived human belief networks. Using data from a human survey, we estima",
+    "score": 7,
+    "url": "https://www.semanticscholar.org/paper/04e5c40f897098d1781e2d6ee721f5fafcbf0417"
+  },
+  {
+    "title": "Improving LLM Reasoning through Interpretable Role-Playing Steering",
+    "year": 2025,
+    "authors": "Anyi Wang, Dong Shu, Yifan Wang",
+    "citations": 6,
+    "arxiv": "2506.07335",
+    "abstract": "Role-playing has emerged as an effective technique for enhancing the reasoning capabilities of large language models (LLMs). However, existing methods primarily rely on prompt engineering, which often lacks stability and interpretability. In this paper, we introduce Sparse Autoencoder Role-Playing Steering (SRPS), a novel framework that identifies and manipulates internal model features associated",
+    "score": 7,
+    "url": "https://www.semanticscholar.org/paper/f2f2cefe9a233ca8b909cae56b60bfe0dc4234cc"
+  },
+  {
+    "title": "Persona is a Double-edged Sword: Enhancing the Zero-shot Reasoning by Ensembling the Role-playing and Neutral Prompts",
+    "year": 2024,
+    "authors": "Junseok Kim, Nakyeong Yang, Kyomin Jung",
+    "citations": 4,
+    "arxiv": "",
+    "abstract": "",
+    "score": 7,
+    "url": "https://www.semanticscholar.org/paper/eda16ec7223c0e96cd92e720a408c6222d815af1"
+  }
+]

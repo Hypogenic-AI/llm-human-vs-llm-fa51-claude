@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "hey can you explain the effects of sleep deprivation?"}], "temperature": 0.0, "max_tokens": 500, "response": "Of course. Sleep deprivation is much more than just feeling tired; it's a serious condition", "timestamp": 1770754782.3688276}

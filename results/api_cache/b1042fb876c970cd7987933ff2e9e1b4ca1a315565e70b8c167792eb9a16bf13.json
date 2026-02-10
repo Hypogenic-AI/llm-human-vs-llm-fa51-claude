@@ -1,0 +1,1 @@
+{"model": "claude-sonnet-4-5", "model_id": "anthropic/claude-sonnet-4.5", "messages": [{"role": "user", "content": "Is the following sentence plausible? \"Tom Brady converted the first down.\" Answer yes or no."}], "temperature": 0.0, "max_tokens": 200, "response": "Yes.", "timestamp": 1770752184.184427}

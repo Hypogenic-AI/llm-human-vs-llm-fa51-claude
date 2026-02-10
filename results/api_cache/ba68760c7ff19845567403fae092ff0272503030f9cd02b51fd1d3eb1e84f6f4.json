@@ -1,0 +1,1 @@
+{"model": "gpt-4.1", "model_id": "gpt-4.1", "messages": [{"role": "user", "content": "Answer this question: What claimed the life of singer Kathleen Ferrier?"}], "temperature": 0.0, "max_tokens": 200, "response": "Singer Kathleen Ferrier died of cancer. Specifically, she succumbed to breast cancer in 1953.", "timestamp": 1770750126.2328043}

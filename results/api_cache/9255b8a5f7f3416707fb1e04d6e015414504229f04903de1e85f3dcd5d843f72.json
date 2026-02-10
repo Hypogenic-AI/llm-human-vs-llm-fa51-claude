@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "Which country does the airline TAAG come from?"}], "temperature": 0.0, "max_tokens": 200, "response": "TAAG is the national airline of **", "timestamp": 1770751721.6971068}

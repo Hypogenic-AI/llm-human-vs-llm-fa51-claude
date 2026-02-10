@@ -1,0 +1,37 @@
+\section{Related Work}
+\label{sec:related_work}
+
+Our work draws on and connects several lines of research: prompt sensitivity, sycophancy and behavioral adaptation, AI-generated text detection, and multi-agent LLM systems.
+
+\para{Prompt sensitivity.}
+LLMs are known to be sensitive to prompt phrasing.
+\citet{razavi2025benchmarking} introduced the Prompt Sensitivity Prediction task, showing that minor rewording of prompts can change correct answers to incorrect ones, and that existing methods struggle to predict which variations will succeed.
+\citet{razavi2024posix} proposed a quantitative index for measuring this sensitivity.
+\citet{yang2024opro} demonstrated that LLM-optimized prompts can outperform human-designed ones by up to 50\% on reasoning benchmarks, and that these optimized prompts have distinctive non-human characteristics.
+Our work differs from prompt sensitivity research in that we do not study arbitrary rephrasings; instead, we systematically vary a single dimension---human versus LLM authorship style---while controlling semantic content.
+
+\para{Sycophancy and behavioral adaptation.}
+\citet{sharma2024sycophancy} showed that instruction-tuned models consistently exhibit sycophancy across diverse tasks, tailoring responses based on perceived user preferences.
+Models change correct answers when challenged and provide more positive feedback when users express enthusiasm.
+\citet{wei2023sycophancy} demonstrated that sycophancy can be reduced with targeted synthetic training data, confirming it is a learned behavior.
+\citet{turpin2023unfaithful} showed that subtle input features can dramatically influence LLM outputs without explicit acknowledgment---biasing features cause accuracy drops of up to 36\%, yet models virtually never mention being influenced.
+Our work extends this line by testing whether prompt \textit{style} (rather than explicit preference signals or biasing features) triggers behavioral adaptation.
+
+\para{AI-generated text detection.}
+A substantial body of work has developed methods to distinguish human-written from AI-generated text~\citep{mitchell2023detectgpt,sadasivan2023aigenerated}.
+These methods exploit statistical differences in word choice, sentence structure, and perplexity profiles between human and machine text.
+Our work leverages the insight that such stylistic differences exist, but asks a different question: do LLMs themselves respond to these differences in their input prompts?
+Our Experiment~1 directly tests whether LLMs can classify prompt authorship style, finding that \gptfour achieves 93.8\% accuracy and \claude achieves 100\%.
+
+\para{Mechanistic processing of human vs.\ machine prompts.}
+Most directly relevant to our work, \citet{kervadec2023unnatural} showed that base LLMs (OPT-350m, OPT-1.3b) process machine-generated prompts through fundamentally different internal pathways than human-written prompts.
+Knowledge neuron activation overlap between human and machine prompts was very low (13--26 on a 0--100 scale), and a simple linear classifier could distinguish prompt types from activation patterns on any layer.
+However, their ``machine prompts'' were nonsensical sequences produced by AutoPrompt and OptiPrompt, bearing no resemblance to natural language.
+We extend this direction to instruction-tuned frontier models with well-formed, natural-language prompts that differ only in stylistic markers of authorship.
+
+\para{Multi-agent LLM systems.}
+The growing use of LLMs in multi-agent systems~\citep{du2023debate,chan2023chateval} makes our question practically urgent.
+In these systems, LLM-generated prompts are the default input mode, yet system designers typically assume that prompt source does not matter.
+\citet{perez2022discovering} used LLM-written evaluations to probe other LLMs' behaviors, implicitly relying on the assumption that LLM-generated prompts elicit representative behavior.
+\citet{zhou2025pimmur} found that frontier LLMs can identify underlying experimental setups 47.6\% of the time in society simulations, suggesting models may also detect whether a prompt originates from another LLM.
+Our results demonstrate that this assumption warrants scrutiny: the same semantic content, delivered in human versus LLM style, produces measurably different outputs.

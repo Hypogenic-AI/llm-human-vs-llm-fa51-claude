@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "What was the name of Michael Jackson's autobiography written in 1988?"}], "temperature": 0.0, "max_tokens": 200, "response": "Michael Jackson's 198", "timestamp": 1770751219.9652333}

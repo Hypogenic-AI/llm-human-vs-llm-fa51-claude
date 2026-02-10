@@ -1,0 +1,1 @@
+{"model": "gemini-2.5-pro", "model_id": "google/gemini-2.5-pro", "messages": [{"role": "user", "content": "How does the immune system work? keep it simple"}], "temperature": 0.0, "max_tokens": 500, "response": "Of course! Here is a simple way to understand how your immune system works.\n\nThink of", "timestamp": 1770754745.9455717}
